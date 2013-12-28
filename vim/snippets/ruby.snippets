@@ -1,0 +1,58 @@
+# <space>, to Hash Pointer
+snippet ,
+options word
+	=> ${1}
+
+snippet class
+	class ${1}
+	  ${2}
+	end
+
+snippet mod
+	module ${1}
+	  ${2}
+	end
+
+snippet module
+	module ${1}
+	  ${2}
+	end
+
+snippet begin
+	begin
+	  ${2}
+	rescue ${1:Exception} => e
+	end
+
+snippet {
+options word
+	{|${1}| ${2}
+
+snippet bv
+	{|${1}| ${2}}
+
+snippet bvv
+	{|${1}|
+	  ${2}
+	}
+
+
+# rspec
+# ------------------------------------------------------------------------
+
+snippet describe
+	describe ${1} do
+	  ${2}
+	end
+snippet context
+	context ${1} do
+	  ${2}
+	end
+snippet it
+	it {${1}}
+snippet itdo
+	it "${1}" do
+	  ${2}
+	end
+snippet let
+	let (${1}) {${2}}

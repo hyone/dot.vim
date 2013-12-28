@@ -1,0 +1,23 @@
+# Attention! : not work if indent <Tab> is replaced by <Space>
+# uw top link
+snippet uwtop
+	<a href="index.zpl" [[ACCESS_KEY0]]>[[EM_KEYCAP_0]]</a>日刊ｽﾎﾟｰﾂ競馬<br>
+	${2}
+# bw top link
+snippet bwtop
+	<a href="index.zpl" [[ACCESS_KEY0]]>[[EM_KEYCAP_0]]</a>ﾆｯｶﾝﾊﾞﾄﾙTOP<br>
+	${2}
+# encoding
+snippet enc
+	${ENCODING}${2}
+# header
+snippet head
+	<%
+	    tool.response.setHeader("Content-Type","text/html; charset=${CONTENTS_ENCODING}")
+	%>
+	${2}
+# put header text/plain
+snippet dh
+	tool.response.setHeader("Content-Type","text/plain; charset=${CONTENTS_ENCODING}")${2}
+snippet qu
+	tool.query.query('uma', "${1}")
