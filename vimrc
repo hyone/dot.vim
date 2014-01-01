@@ -59,6 +59,7 @@ NeoBundle 'Shougo/vimshell'
 NeoBundle 'bkad/CamelCaseMotion'
 NeoBundleLazy 'cocopon/colorswatch.vim'
 NeoBundle 'c9s/perlomni.vim'
+NeoBundle 'deris/vim-textobj-enclosedsyntax'
 NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'gkz/vim-ls'
 NeoBundle 'itchyny/lightline.vim'
@@ -69,17 +70,21 @@ NeoBundle 'kana/vim-smartinput'
 NeoBundle 'kana/vim-smartword'
 NeoBundle 'kana/vim-textobj-function'
 NeoBundle 'kana/vim-textobj-indent'
-NeoBundle 'kana/vim-textobj-lastpat'
+" NeoBundle 'kana/vim-textobj-lastpat'
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'mattn/sonictemplate-vim'
+NeoBundle 'mattn/vim-textobj-url'
 NeoBundle 'motemen/git-vim'
 NeoBundle 'msanders/cocoa.vim'
+" NeoBundle 'osyo-manga/vim-textobj-multiblock'
+" NeoBundle 'osyo-manga/vim-textobj-multitextobj'
 NeoBundle 'rgarver/Kwbd.vim'
 NeoBundle 'rhysd/vim-textobj-ruby'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'sgur/vim-textobj-parameter'
 NeoBundle 'sjl/gundo.vim'
 NeoBundle 't9md/vim-textobj-function-ruby'
 NeoBundle 'thinca/vim-ft-svn_diff'
@@ -298,7 +303,7 @@ set wildmode=list:longest
 " In console version, use <Nul> or <C-@> to map <C-Space>.
 "
 
-"   Normal, Visual and Operator-pending mode  {{{2
+"   Normal, Visual and Operator Pending Mode  {{{2
 " ==================================================
 
 "   smartword.vim
@@ -343,6 +348,28 @@ noremap <silent> <Esc>m      M
 noremap <silent> <Esc>l      L
 
 
+"   Operator Pending Mode   {{{2
+" ==================================================
+
+"   Text Objects
+" --------------------------------------------------
+"
+"   textobj-enclosedsyntax: iq, aq
+"   textobj-function: if af
+"   textobj-indent: ii ai
+"   textobj-parameter: i, a,
+"   textobj-comment: ic ac
+"   textobj-url: au iu
+
+"   textobj-ruby:
+"   enable more mappings below:
+"   ro: definitions blocks              module, class, def
+"   rl: loop blocks                     while, for, until
+"   rc: control blocks                  do, begin, if, unless, case
+"   rd: do statement                    do
+"   rr: any block including above all   all blocks
+let g:textobj_ruby_more_mappings = 1
+
 "   surround.vim
 " --------------------------------------------------
 
@@ -357,13 +384,39 @@ nmap ySS <Plug>YSsurround
 xmap S   <Plug>VSurround
 xmap gS  <Plug>VgSurround
 
-
-"   Operator
+"   textobj-multitextobj.vim
 " --------------------------------------------------
 
-"  replace region with register text.
-" nmap T          <Plug>(operator-replace)
+let g:textobj_multitextobj_textobjects_group_i = {
+\   "paren": [
+\     'i)',
+\     'i]',
+\     'i}',
+\   ]
+\ }
 
+let g:textobj_multitextobj_textobjects_group_a = {
+\   "paren": [
+\     'a)',
+\     'a]',
+\     'a}',
+\   ]
+\ }
+
+map <expr> <Plug>(textobj-paren-i) textobj#multitextobj#mapexpr_i("paren")
+map <expr> <Plug>(textobj-paren-a) textobj#multitextobj#mapexpr_a("paren")
+
+omap imp <Plug>(textobj-paren-i)
+omap amp <Plug>(textobj-paren-a)
+vmap imp <Plug>(textobj-paren-i)
+vmap amp <Plug>(textobj-paren-a)
+
+
+"   Operator   {{{2
+" ==================================================
+
+"   replace region with register text.
+" nmap T          <Plug>(operator-replace)
 "   shortcut for default yank register
 nmap S          ""<Plug>(operator-replace)
 
@@ -375,7 +428,6 @@ nnoremap _ _
 " camelize or decamelize
 map sc <Plug>(operator-camelize)
 map sC <Plug>(operator-decamelize)
-
 
 "   Prefix: s
 "   use key mappings s* for substitute strings
