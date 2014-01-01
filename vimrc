@@ -726,9 +726,11 @@ nnoremap <silent> gy :<C-u>Unite history/yank<CR>
 "   search a line in the current buffer
 nnoremap <silent> g/ :<C-u>Unite -buffer-name=search line -start-insert<CR>
 "   grep
-nnoremap <silent> g; :<C-u>Unite grep:. -buffer-name=grep -start-insert<CR>
+nnoremap <silent> g: :<C-u>Unite grep -buffer-name=grep -start-insert<CR>
 "   grep with the word on the current cursor
-nnoremap <silent> g+ :<C-u>UniteWithCursorWord grep:. -buffer-name=grep -start-insert<CR>
+nnoremap <silent> g; :<C-u>UniteWithCursorWord grep:. -buffer-name=grep -start-insert<CR>
+"   grep with the directory of the current buffer belongs
+nnoremap <silent> g+ :<C-u>Unite grep:<C-r>=expand('%:p:h')<CR> -buffer-name=grep -start-insert<CR>
 "   resume
 nnoremap <silent> gz :<C-u>UniteResume<CR>
 
