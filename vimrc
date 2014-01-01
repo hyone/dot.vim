@@ -101,6 +101,7 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-surround'
+NeoBundle 'tyru/capture.vim'
 NeoBundle 'tyru/operator-camelize.vim'
 NeoBundle 'vim-scripts/JSON.vim'
 "   vim-scripts repos
