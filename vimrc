@@ -1240,24 +1240,24 @@ call smartinput#define_rule({
 \   'at'    : '(\%#)',
 \   'char'  : '<Space>',
 \   'input' : '<Space><Space><Left>',
-\   })
+\ })
 call smartinput#define_rule({
 \   'at'    : '( \%# )',
 \   'char'  : '<BS>',
 \   'input' : '<Del><BS>',
-\   })
+\ })
 
 call smartinput#map_to_trigger('i', '<CR>', '<CR>', '<CR>')
 call smartinput#define_rule({
 \   'at'    : '(\%#)',
 \   'char'  : '<CR>',
 \   'input' : '<CR><CR><Up><Tab>',
-\   })
+\ })
 call smartinput#define_rule({
 \   'at'    : '(\n\s*\%#\n\s*)',
 \   'char'  : '<BS>',
 \   'input' : '<Esc>ddd0i<C-u><BS>',
-\   })
+\ })
 
 "   {}
 call smartinput#map_to_trigger('i', '<Space>', '<Space>', '<Space>')
@@ -1265,24 +1265,24 @@ call smartinput#define_rule({
 \   'at'    : '{\%#}',
 \   'char'  : '<Space>',
 \   'input' : '<Space><Space><Left>',
-\   })
+\ })
 call smartinput#define_rule({
 \   'at'    : '{ \%# }',
 \   'char'  : '<BS>',
 \   'input' : '<Del><BS>',
-\   })
+\ })
 
 call smartinput#map_to_trigger('i', '<CR>', '<CR>', '<CR>')
 call smartinput#define_rule({
 \   'at'    : '{\%#}',
 \   'char'  : '<CR>',
 \   'input' : '<CR><CR><Up><Tab>',
-\   })
+\ })
 call smartinput#define_rule({
 \   'at'    : '{\n\s*\%#\n\s*}',
 \   'char'  : '<BS>',
 \   'input' : '<Esc>ddd0i<BS>',
-\   })
+\ })
 
 "   []
 call smartinput#map_to_trigger('i', '<Space>', '<Space>', '<Space>')
@@ -1290,24 +1290,24 @@ call smartinput#define_rule({
 \   'at'    : '\[\%#\]',
 \   'char'  : '<Space>',
 \   'input' : '<Space><Space><Left>',
-\   })
+\ })
 call smartinput#define_rule({
 \   'at'    : '\[ \%# \]',
 \   'char'  : '<BS>',
 \   'input' : '<Del><BS>',
-\   })
+\ })
 
 call smartinput#map_to_trigger('i', '<CR>', '<CR>', '<CR>')
 call smartinput#define_rule({
 \   'at'    : '\[\%#\]',
 \   'char'  : '<CR>',
 \   'input' : '<CR><CR><Up><Tab>',
-\   })
+\ })
 call smartinput#define_rule({
 \   'at'    : '\[\n\s*\%#\n\s*\]',
 \   'char'  : '<BS>',
 \   'input' : '<Esc>ddd0i<BS>',
-\   })
+\ })
 
 
 " ===============================================================================
