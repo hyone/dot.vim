@@ -44,15 +44,25 @@ snippet describe
 	describe ${1} do
 	  ${2}
 	end
+
 snippet context
 	context ${1} do
 	  ${2}
 	end
+
 snippet it
 	it {${1}}
 snippet itdo
 	it "${1}" do
 	  ${2}
 	end
+
 snippet let
 	let (${1}) {${2}}
+snippet let!
+	let! (${1}) {${2}}
+
+snippet shared_examples_for
+	shared_examples_for "${1}" do
+	  ${2}
+	end
