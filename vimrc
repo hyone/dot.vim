@@ -1218,9 +1218,11 @@ let Tlist_Enable_Fold_Column = 0
 let objc_man_key = ''
 
 
-"   vimclojure.vim   {{{2
+"   altercmd.vim   {{{2
 " ==================================================
 
+"   MUST call this before using AlterCommand
+call altercmd#load()
 
 
 "   sonictemplate.vim   {{{2
@@ -1368,6 +1370,9 @@ endif
 command! -nargs=1 -complete=file Rename
 \ file <args>|call delete(expand('#'))
 
+"   shortcut to change filetype
+command! -nargs=1 -complete=filetype FT
+\ set filetype=<args>
 
 "   (re)open a file with specific filleencoding
 command! -bang -bar -complete=file -nargs=? Cp932
