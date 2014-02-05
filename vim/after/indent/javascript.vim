@@ -1,13 +1,14 @@
+setlocal expandtab
 setlocal shiftwidth=2
 setlocal softtabstop=2
-setlocal expandtab
 
-if !exists('b:undo_ftplugin')
-  let b:undo_ftplugin = ''
+
+if !exists('b:undo_indent')
+  let b:undo_indent = ''
 endif
 
-let b:undo_ftplugin .= '
-\ | setlocal expandtab<
-\ | setlocal shiftwidth<
-\ | setlocal softtabstop<
-\ '
+let b:undo_indent = 'setlocal ' . join([
+\   'expandtab<',
+\   'shiftwidth<',
+\   'softtabstop<',
+\ ])

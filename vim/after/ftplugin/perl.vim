@@ -5,7 +5,6 @@ let g:perl_compiler_force_warnings = 0
 "   bacause I want to complete module name with '::'.
 let b:acp_addKeyword = ':'
 
-setlocal expandtab
 "   prevent vim from automatically inserting a comment delimiter when inputing new line.
 setlocal formatoptions-=r
 
@@ -29,11 +28,3 @@ nnoremap <silent> <buffer> <C-a>i{    vi{ge:\<C-u>'<,'>Align =><CR>
   " echomsg "align_hash"
   " execute 'normal!' "vi".a:border."k:<C-u>'<,'>Align =><CR>"
 " endfunction
-
-
-if !exists('b:undo_ftplugin')
-  let b:undo_ftplugin = ''
-endif
-let b:undo_ftplugin .= '
-\ | setlocal expandtab<
-\ '

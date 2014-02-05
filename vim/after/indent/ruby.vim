@@ -1,11 +1,14 @@
 setlocal expandtab
-setlocal softtabstop=2
 setlocal shiftwidth=2
+setlocal softtabstop=2
+
 
 if !exists('b:undo_indent')
   let b:undo_indent = ''
 endif
 
-let b:undo_indent .= '
-\ | setlocal expandtab< shiftwidth< softtabstop<
-\'
+let b:undo_indent = 'setlocal ' . join([
+\   'expandtab<',
+\   'shiftwidth<',
+\   'softtabstop<',
+\ ])
