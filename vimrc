@@ -76,6 +76,7 @@ NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'lilydjwg/colorizer'
 NeoBundle 'mattn/sonictemplate-vim'
 NeoBundle 'mattn/vim-textobj-url'
+NeoBundle 'mattn/webapi-vim'
 NeoBundle 'motemen/git-vim'
 NeoBundle 'msanders/cocoa.vim'
 " NeoBundle 'osyo-manga/vim-textobj-multiblock'
@@ -88,6 +89,7 @@ NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'sgur/vim-textobj-parameter'
 NeoBundle 'sjl/gundo.vim'
+NeoBundle 'superbrothers/vim-quickrun-markdown-gfm'
 NeoBundle 't9md/vim-textobj-function-ruby'
 NeoBundle 'thinca/vim-ft-svn_diff'
 " NeoBundle 'thinca/vim-guicolorscheme'
@@ -104,6 +106,7 @@ NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tyru/capture.vim'
+NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'tyru/operator-camelize.vim'
 NeoBundle 'tyru/vim-altercmd'
 NeoBundle 'vim-scripts/JSON.vim'
@@ -1146,6 +1149,10 @@ let g:quickrun_config = {
 \       "outputter/buffer/split" : ":botright 20sp",
 \       "runner" : "vimproc",
 \       "runner/vimproc/updatetime" : 40,
+\   },
+\   "markdown" : {
+\       "type": "markdown/gfm",
+\       "outputter": "browser"
 \   },
 \}
 
