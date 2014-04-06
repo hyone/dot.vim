@@ -564,6 +564,7 @@ nnoremap <silent> <Leader>x :<C-u>wqa<CR>
 nnoremap <silent> <Leader>q :<C-u>qa!<CR>
 
 
+
 "   Prefix: <C-t>
 " --------------------------------------------------
 "   disable defualt <C-t> function
@@ -1121,12 +1122,12 @@ command! -nargs=1 -complete=command UniteExCommand Unite output:<args>
 
 augroup Unite
   autocmd!
-  autocmd FileType unite nnoremap <silent> <buffer> <expr> <C-s> unite#do_action('above')
-  autocmd FileType unite inoremap <silent> <buffer> <expr> <C-s> unite#do_action('above')
-  autocmd FileType unite nnoremap <silent> <buffer> <expr> <C-v> unite#do_action('below')
-  autocmd FileType unite inoremap <silent> <buffer> <expr> <C-v> unite#do_action('below')
-  autocmd FileType unite nnoremap <silent> <buffer> <expr> <C-t> unite#do_action('tabopen')
-  autocmd FileType unite inoremap <silent> <buffer> <expr> <C-t> unite#do_action('tabopen')
+  autocmd FileType unite nnoremap <silent><buffer><expr> <C-s> unite#do_action('above')
+  autocmd FileType unite inoremap <silent><buffer><expr> <C-s> unite#do_action('above')
+  autocmd FileType unite nnoremap <silent><buffer><expr> <C-v> unite#do_action('below')
+  autocmd FileType unite inoremap <silent><buffer><expr> <C-v> unite#do_action('below')
+  autocmd FileType unite nnoremap <silent><buffer><expr> <C-t> unite#do_action('my_tabopen')
+  autocmd FileType unite inoremap <silent><buffer><expr> <C-t> unite#do_action('my_tabopen')
   " file browse
   autocmd FileType unite nnoremap <silent><buffer><expr> f unite#smart_map('f', unite#do_action('vimfiler'))
   autocmd FileType unite inoremap <silent><buffer><expr> f unite#smart_map('f', unite#do_action('vimfiler'))
