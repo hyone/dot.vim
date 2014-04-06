@@ -527,7 +527,8 @@ nnoremap <C-h>]           :<C-u>help<Space><C-r><C-w><CR>
 "   check mappings ':nmap \c' or in 'plugin/NERD_commenter.vim'
 
 "   move the directory has the file of current buffer
-nnoremap <silent> <leader>c :<C-u>cd %:p:h<CR>:echo 'cd' getcwd()<CR>
+nnoremap <silent> <leader>c :<C-u>CD!<CR>
+" nnoremap <silent> <leader>c :<C-u>cd %:p:h<CR>:echo 'cd' getcwd()<CR>
 "   source the current buffer
 nnoremap <silent> <leader>s :<C-u>source %:p<CR>:echo 'source' expand('%:p')<CR>
 "   source the current buffer
@@ -1458,6 +1459,23 @@ function! s:ListSnippets()
     echo "\n\t" . join( split(snippets[key], "\n"), "\n\t" )
     echo
   endfor
+endfunction
+
+
+"   cd the current directory of the buffer
+" --------------------------------------------------
+command! -nargs=? -complete=dir -bang CD  call s:ChangeCurrentDir('<args>', '<bang>') 
+
+function! s:ChangeCurrentDir(directory, bang)
+  if a:directory == ''
+    lcd %:p:h
+  else
+    execute 'lcd ' . a:directory
+  endif
+
+  if a:bang == '!'
+    echo 'cd' getcwd()
+  endif
 endfunction
 
 
