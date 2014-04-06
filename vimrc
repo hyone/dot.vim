@@ -197,10 +197,10 @@ set autoread
 " --------------------------------------------------
 set expandtab
 "   indent width
-set shiftwidth=4
-"   make hitting <Tab> is treated as width of 4 character,
+set shiftwidth=2
+"   make hitting <Tab> is treated as width of 2 character,
 "   while <Tab> character itself already in a file is treated as 'tabstop' width.
-set softtabstop=4
+set softtabstop=2
 "   I want to delete all blanks until tabstop or softtabstop by hitting <BS>
 set smarttab
 
