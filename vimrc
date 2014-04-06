@@ -574,8 +574,8 @@ command! -count=1 TabNextRelative
 \   execute 'tabnext' 1 + (tabpagenr() + v:count1 - 1) % tabpagenr('$')
 
 "   create a new tabpage at the right of the last one
-nnoremap <silent> <C-t>c :<C-u>tabnew \| tabmove<CR>
 nnoremap <silent> <C-t>n :<C-u>tabnew \| tabmove<CR>
+nnoremap <silent> <C-t>c :<C-u>tabclose<CR>
 nnoremap <silent> <C-t>d :<C-u>tabclose<CR>
 nnoremap <silent> <C-t>o :<C-u>tabonly<CR>
 "   use gt, gT to enable to specify count
