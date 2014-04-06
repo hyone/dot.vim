@@ -497,7 +497,7 @@ nnoremap F                <Nop>
 nnoremap <silent> F       :<C-u>UniteWithBufferDir -buffer-name=files_from_cwd buffer file file_mru bookmark file/new<CR>
 nnoremap R                <Nop>
 nnoremap <silent> R       :<C-u>Unite -start-insert -buffer-name=mrc buffer file_mru:long bookmark file file/new<CR>
-nnoremap <silent> <C-j>   :<C-u>Unite buffer<CR>
+nnoremap <silent> <C-j>   :<C-u>Unite tab:no-current buffer<CR>
 nnoremap <silent> <C-y>   :<C-u>Unite history/yank<CR>
 
 " "   move to an other window
@@ -719,7 +719,7 @@ nnoremap <silent> qwo   :<C-u>lopen<CR>
 nnoremap <silent> g.    g;
 
 "   unite.vim
-nnoremap <silent> gb :<C-u>Unite tab buffer<CR>
+nnoremap <silent> gb :<C-u>Unite tab:no-current buffer<CR>
 nnoremap <silent> gf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 "   register
 nnoremap <silent> gR :<C-u>Unite -buffer-name=register register<CR>
@@ -734,6 +734,8 @@ nnoremap <silent> gj :<C-u>Unite jump<CR>
 nnoremap <silent> gp :<C-u>Unite file_rec/async:!<CR>
 "   neosnippet
 nnoremap <silent> gs :<C-u>Unite snippet<CR>
+"   tab
+nnoremap <silent> gt :<C-u>Unite tab:no-current<CR>
 "   yank history
 nnoremap <silent> gy :<C-u>Unite history/yank<CR>
 "   search a line in the current buffer
@@ -1100,6 +1102,17 @@ if executable('ag')
   let g:unite_source_grep_recursive_opt = ''
 endif
 
+" unified command to open as a new tab between buffer, file and tab sources
+let s:my_tabopen = { 'is_selectable' : 1 }
+function! s:my_tabopen.func(candidates)
+  if a:candidates[0].kind == 'tab'
+    call unite#take_action('open', a:candidates[0])
+  else
+    call unite#take_action('tabopen', a:candidates)
+  endif
+endfunction
+call unite#custom_action('file', 'my_tabopen', s:my_tabopen)
+call unite#custom_action('tab',  'my_tabopen', s:my_tabopen)
 
 " Unite from ex command output
 command! -nargs=1 -complete=command UniteExCommand Unite output:<args>
