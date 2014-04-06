@@ -89,6 +89,13 @@ NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'sgur/vim-textobj-parameter'
 NeoBundle 'sjl/gundo.vim'
+NeoBundle 'skwp/vim-rspec'
+" NeoBundleLazy 'taichouchou2/neorspec.vim', {
+" \   'depends' : ['tpope/vim-rails', 'tpope/vim-dispatch'],
+" \   'autoload' : {
+" \     'commands' : ['RSpec', 'RSpecAll', 'RSpecCurrent', 'RSpecNearest', 'RSpecRetry']
+" \   }
+" \ }
 NeoBundle 'superbrothers/vim-quickrun-markdown-gfm'
 NeoBundle 't9md/vim-textobj-function-ruby'
 NeoBundle 'thinca/vim-ft-svn_diff'
