@@ -1507,6 +1507,14 @@ augroup FileTypeAbbrev
   autocmd FileType pl setlocal ft=perl
 augroup END
 
+"   save and load buffer state (cursor, folding, ...)
+augroup BufferState
+  autocmd!
+
+  autocmd BufWinLeave ?* silent mkview
+  autocmd BufWinEnter ?* silent loadview
+augroup END
+
 
 " ===============================================================================
 "   Functions   {{{1
