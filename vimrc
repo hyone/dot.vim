@@ -1519,8 +1519,8 @@ augroup END
 augroup BufferState
   autocmd!
 
-  autocmd BufWinLeave ?* silent mkview
-  autocmd BufWinEnter ?* silent loadview
+  autocmd BufWinLeave *.* silent mkview
+  autocmd BufWinEnter *.* silent loadview
 augroup END
 
 
