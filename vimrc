@@ -722,7 +722,7 @@ nnoremap <silent> qwo   :<C-u>lopen<CR>
 nnoremap <silent> g.    g;
 
 "   unite.vim
-nnoremap <silent> gb :<C-u>Unite tab:no-current buffer<CR>
+nnoremap <silent> gb :<C-u>Unite buffer<CR>
 nnoremap <silent> gf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 "   register
 nnoremap <silent> gR :<C-u>Unite -buffer-name=register register<CR>
