@@ -42,7 +42,7 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 "   github
-NeoBundle 'Shougo/vimproc', {
+NeoBundle 'Shougo/vimproc.vim', {
 \   'build' : {
 \     'windows' : 'make -f make_mingw32.mak',
 \     'cygwin' : 'make -f make_cygwin.mak',
@@ -52,9 +52,10 @@ NeoBundle 'Shougo/vimproc', {
 \ }
 NeoBundle 'LeafCage/yankround.vim'
 NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neomru.vim', { 'depends': [ 'Shougo/unite.vim' ] }
 NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimfiler'
+NeoBundle 'Shougo/unite.vim', { 'depends': [ 'Shougo/vimproc.vim' ] }
+NeoBundle 'Shougo/vimfiler',  { 'depends': [ 'Shougo/unite.vim' ] }
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'bkad/CamelCaseMotion'
 NeoBundleLazy 'cocopon/colorswatch.vim'
