@@ -790,6 +790,7 @@ imap <C-o>  <Plug>(neosnippet_expand_or_jump)
 imap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 smap <expr><C-o> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<C-o>"
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+xmap <TAB>  <Plug>(neosnippet_expand_target)
 
 " inoremap <C-l> <Right>
 " inoremap <C-h> <Left>
@@ -1072,6 +1073,11 @@ let g:neocomplcache_force_overwrite_completefunc = 1
 " ==================================================
 
 let g:neosnippet#snippets_directory = basedir . 'snippets'
+
+" do not load default snippets set
+let g:neosnippet#disable_runtime_snippets = {
+\   '_' : 1,
+\ }
 
 " For snippet_complete marker.
 if has('conceal')
