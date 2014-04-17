@@ -55,6 +55,7 @@ NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neomru.vim', { 'depends': [ 'Shougo/unite.vim' ] }
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/unite.vim', { 'depends': [ 'Shougo/vimproc.vim' ] }
+NeoBundle 'Shougo/unite-help', { 'depends': [ 'Shougo/unite.vim' ] }
 NeoBundle 'Shougo/vimfiler',  { 'depends': [ 'Shougo/unite.vim' ] }
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'bkad/CamelCaseMotion'
@@ -731,6 +732,8 @@ nnoremap <silent> gr :<C-u>Unite -start-insert tab buffer file_mru<CR>
 nnoremap <silent> ga :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
 "   changelist
 nnoremap <silent> gC :<C-u>Unite change<CR>
+"   help
+nnoremap <silent> gh :<C-u>Unite help<CR>
 "   jumplist
 nnoremap <silent> gj :<C-u>Unite jump<CR>
 "   search in the current project
