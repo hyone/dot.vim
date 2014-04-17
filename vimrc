@@ -58,6 +58,7 @@ NeoBundle 'Shougo/unite.vim', { 'depends': [ 'Shougo/vimproc.vim' ] }
 NeoBundle 'Shougo/unite-help', { 'depends': [ 'Shougo/unite.vim' ] }
 NeoBundle 'Shougo/vimfiler',  { 'depends': [ 'Shougo/unite.vim' ] }
 NeoBundle 'Shougo/vimshell'
+NeoBundle 'basyura/unite-rails', { 'depends': [ 'Shougo/unite.vim' ] }
 NeoBundle 'bkad/CamelCaseMotion'
 NeoBundleLazy 'cocopon/colorswatch.vim'
 NeoBundle 'c9s/perlomni.vim'
@@ -754,6 +755,28 @@ nnoremap <silent> g; :<C-u>UniteWithCursorWord grep:. -buffer-name=grep -start-i
 nnoremap <silent> g+ :<C-u>Unite grep:<C-r>=expand('%:p:h')<CR> -buffer-name=grep -start-insert<CR>
 "   resume
 nnoremap <silent> gz :<C-u>UniteResume<CR>
+
+"   unite rails
+nnoremap <silent> glc :<C-u>Unite rails/controller<CR>
+nnoremap <silent> glm :<C-u>Unite rails/model<CR>
+nnoremap <silent> glv :<C-u>Unite rails/view<CR>
+nnoremap <silent> glh :<C-u>Unite rails/helper<CR>
+nnoremap <silent> gls :<C-u>Unite rails/stylesheet<CR>
+nnoremap <silent> glj :<C-u>Unite rails/javascript<CR>
+nnoremap <silent> glr :<C-u>Unite rails/route<CR>
+nnoremap <silent> glg :<C-u>Unite rails/gemfile<CR>
+nnoremap <silent> glt :<C-u>Unite rails/spec<CR>
+nnoremap <silent> gl  :<C-u>Unite
+\   rails/controller
+\   rails/model
+\   rails/view
+\   rails/helper
+\   rails/stylesheet
+\   rails/javascript
+\   rails/route
+\   rails/gemfile
+\   rails/spec
+\ <CR>
 
 
 "   Function Keys
