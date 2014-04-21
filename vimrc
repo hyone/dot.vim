@@ -1542,12 +1542,14 @@ augroup FileTypeAbbrev
 augroup END
 
 "   save and load buffer state (cursor, folding, ...)
+"   ( exclude vimfiler buffers to avoid that vimfiler does not work )
 augroup BufferState
   autocmd!
-
-  autocmd BufWinLeave *.* silent mkview
-  autocmd BufWinEnter *.* silent loadview
+  autocmd BufWinLeave * if expand('%') != '' && &buftype !~ 'nofile' && expand('%') !~ 'vimfiler' | silent mkview   | endif
+  autocmd BufWinEnter * if expand('%') != '' && &buftype !~ 'nofile' && expand('%') !~ 'vimfiler' | silent loadview | endif
 augroup END
+"   do not save options of the buffer
+set viewoptions-=options
 
 
 " ===============================================================================
