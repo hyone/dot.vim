@@ -1135,7 +1135,9 @@ let g:unite_source_file_mru_filename_format = ""
 " Enalbe history/yank
 let g:unite_source_history_yank_enable = 1
 " file_mru limits for quick start
-let g:unite_source_file_mru_limit = 1000
+let g:neomru#file_mru_limit=100000
+" limit of candidate items of async search
+let g:unite_source_file_rec_max_cache_files=100000
 
 " Grep
 let g:unite_enable_ignore_case = 1
