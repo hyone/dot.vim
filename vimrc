@@ -864,20 +864,25 @@ inoremap <C-c>[ <C-g>u[<CR>]<Esc>O
 
 inoremap <C-c>t  <Esc><C-u>:Unite sonictemplate<CR>
 
-
 "   smartchr.vim
 inoremap <expr> =
 \ search('\(&\<bar><bar>\<bar>+\<bar>-\<bar>/\<bar>>\<bar><\) \%#', 'bcn')
 \ ? '<bs>= '
-\ : search('\(*\<bar>!\)\%#', 'bcn') 
+\ : search('\(*\<bar>!\<bar><bar><bar>\)\%#', 'bcn') 
 \   ? '= '
-\   : smartchr#one_of(' = ', '=', ' == ', ' === ')
+\   : search('[^=] \%#', 'bcn')
+\     ? '= '
+\     : smartchr#one_of(' = ', '=', ' == ', ' === ')
 
 " inoremap <expr> , smartchr#one_of(', ', ' => ', ',')
 inoremap <expr> + smartchr#one_of('+', ' + ', '++', ' ++ ')
 inoremap <expr> - smartchr#one_of('-',  ' - ', '--', ' -- ')
 inoremap <expr> % smartchr#one_of('%',  ' % ')
 inoremap <expr> * smartchr#one_of('*',  ' * ', '**', ' ** ')
+inoremap <expr> <Bar>
+\ search(' \%#', 'bcn')
+\ ? smartchr#one_of('<Bar> ', '<Bar><Bar> ', '<Bar>')
+\ : smartchr#one_of(' <Bar> ', ' <Bar><Bar> ', '<Bar>')
 
 augroup MySmartChr
   autocmd!
@@ -1322,9 +1327,9 @@ call smartinput#define_rule({
 
 call smartinput#map_to_trigger('i', '<CR>', '<CR>', '<CR>')
 call smartinput#define_rule({
-\   'at'    : '(\%#)',
+\   'at'    : '(\s*\%#\s*)',
 \   'char'  : '<CR>',
-\   'input' : '<CR><CR><Up><Tab>',
+\   'input' : ' <Esc>gEa<CR><CR><Up><Tab>',
 \ })
 call smartinput#define_rule({
 \   'at'    : '(\n\s*\%#\n\s*)',
@@ -1347,9 +1352,9 @@ call smartinput#define_rule({
 
 call smartinput#map_to_trigger('i', '<CR>', '<CR>', '<CR>')
 call smartinput#define_rule({
-\   'at'    : '{\%#}',
+\   'at'    : '{\s*\%#\s*}',
 \   'char'  : '<CR>',
-\   'input' : '<CR><CR><Up><Tab>',
+\   'input' : ' <Esc>gEa<CR><CR><Up><Tab>',
 \ })
 call smartinput#define_rule({
 \   'at'    : '{\n\s*\%#\n\s*}',
