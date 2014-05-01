@@ -4,37 +4,70 @@ options word
 	=> ${1}
 
 snippet class
-	class ${1}
-	  ${2}
+abbr    class ... end
+alias   cls
+	class ${1:#:class_name}
+	  ${2:TARGET}
 	end
 
-snippet mod
-	module ${1}
-	  ${2}
-	end
+snippet class1
+abbr    class ... end (oneline)
+alias   cls1
+	class ${1:#:class_name}; ${2:TARGET} end
+
+snippet def
+abbr    def ... end
+	def ${1:#:method_name}
+          ${2:TARGET}
+        end
+
+snippet def1
+abbr    def ... end (oneline)
+	def ${1:#:method_name}; ${2:TARGET} end
 
 snippet module
-	module ${1}
-	  ${2}
+abbr    module ... end
+alias   mod
+	module ${1:#:module_name}
+	  ${2:TARGET}
 	end
+
+snippet if
+abbr    if ... end
+	if ${1:#:condition}
+	  ${2:TARGET}
+	end
+
+snippet unless
+abbr    unless ... end
+	unless ${1:#:condition}
+	  ${2:TARGET}
+	end
+
+snippet ifthenelse
+abbr    if ... then ... else ... end (oneline)
+	if ${1:#:condition} then ${2:TARGET} else ${3:#:else} end${4}
 
 snippet begin
+abbr    begin ... rescue ... end
 	begin
-	  ${2}
-	rescue ${1:Exception} => e
+	  ${3:TARGET}
+	rescue ${1:#:StandardError} => ${2:e}
 	end
 
-snippet {
+snippet blockvar
+alias   blvar
+abbr    { |..| ... }
 options word
-	{|${1}| ${2}
+	{ |${1:#:var}| ${2:TARGET} }
 
-snippet bv
-	{|${1}| ${2}}
+snippet do
+abbr    do ... end
+	do ${1:TARGET} end
 
-snippet bvv
-	{|${1}|
-	  ${2}
-	}
+snippet dovar
+abbr    do |var| ... end
+	do |${1:#:var}| ${2:TARGET} end
 
 
 # rspec
@@ -42,27 +75,44 @@ snippet bvv
 
 snippet describe
 	describe ${1} do
-	  ${2}
+	  ${2:TARGET}
 	end
 
 snippet context
 	context ${1} do
-	  ${2}
+	  ${2:TARGET}
 	end
 
 snippet it
-	it {${1}}
+abbr    it { ... }
+	it { ${1:TARGET} }
+
 snippet itdo
-	it "${1}" do
-	  ${2}
-	end
+abbr    it do ... end
+	it ${1} do ${2:TARGET} end
 
 snippet let
-	let (${1}) {${2}}
+abbr    let ( ... ) { ... }
+	let (${1}) { ${2:TARGET} }
+
 snippet let!
-	let! (${1}) {${2}}
+abbr    let! ( ... ) { ... }
+	let! (${1}) { ${2:TARGET} }
 
 snippet shared_examples_for
-	shared_examples_for "${1}" do
+abbr    shared_examples_for do ... end
+	shared_examples_for ${1} do
 	  ${2}
 	end
+
+snippet before
+abbr    before { ... }
+	before { ${1:TARGET} }
+
+snippet specify
+abbr    specify { ... }
+	specify { ${1:TARGET} }
+
+
+# rails
+# ------------------------------------------------------------------------

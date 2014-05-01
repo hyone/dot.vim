@@ -188,56 +188,59 @@ snippet script-bootstrap
 snippet script-jquery
 	<script src="http://code.jquery.com/jquery-2.1.0.min.js" type="text/javascript" charset="utf-8"></script>
 
-snippet cls
-	class="${1}"${2}
 snippet class
+alias   cls
+abbr    class="..."
 	class="${1}"${2}
 
 snippet div
-	<div>${1}</div>
+	<div>${1:TARGET}</div>
 snippet divclass
-	<div class="${1}">${2}</div>
+alias   divc
+	<div class="${1}">${2:TARGET}</div>
 
 snippet h1
-	<h1>${1}</h1>
+	<h1>${1:TARGET}</h1>
 snippet h2
-	<h2>${1}</h2>
+	<h2>${1:TARGET}</h2>
 snippet h3
-	<h3>${1}</h3>
+	<h3>${1:TARGET}</h3>
 snippet h4
-	<h4>${1}</h4>
+	<h4>${1:TARGET}</h4>
 snippet h5
-	<h5>${1}</h5>
+	<h5>${1:TARGET}</h5>
 snippet h6
-	<h6>${1}</h6>
+	<h6>${1:TARGET}</h6>
 
 snippet span
-	<span>${1:name}</span>
+	<span>${1:TARGET}</span>
 
 snippet dl
-	<dl>${1}</dl>
+	<dl>${1:TARGET}</dl>
 snippet dd
-	<dd>${1}</dd>
+	<dd>${1:TARGET}</dd>
 snippet dt
-	<dt>${1}</dt>
+	<dt>${1:TARGET}</dt>
+snippet ol
+	<ol>${1:TARGET}</ol>
 snippet ul
-	<ul>${1}</ul>
+	<ul>${1:TARGET}</ul>
 snippet li
-	<li>${1}</li>
+	<li>${1:TARGET}</li>
 
 snippet a
-	<a href="${1}">${2}</a>
+	<a href="${1}">${2:TARGET}</a>
 
 #   form
 snippet label
-	<label>${1:name}</label>
+	<label>${1:TARGET}</label>
 snippet labelfor
-	<label for="${2:$1}">${1:name}</label>
+	<label for="${2:$1}">${1:TARGET}</label>
 
 snippet select
-	<select>${1}</select>
+	<select>${1:TARGET}</select>
 snippet option
-	<option value="${1:value}">${2:$1}</option>
+	<option value="${1:TARGET}">${2:$1}</option>
 
 snippet input
-	<input type="${1:text/submit/button/radio/checkbox/hidden}">${2}
+	<input type="${1:text/submit/button/radio/checkbox/hidden}">

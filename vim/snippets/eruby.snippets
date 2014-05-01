@@ -11,3 +11,57 @@ options word
 snippet dhh
 options word
 	<%=h ${1} %>
+
+snippet if
+abbr    if ... end
+	<% if ${1:#:condition} %>
+	  ${2:TARGET}
+	<% end %>
+
+snippet ifelse
+abbr    if ... else ... end
+	<% if ${1:#:condition} %>
+	  ${1:TARGET}
+	<% else %>
+	  ${2}
+	<% end %>
+
+
+# rails
+# ------------------------------------------------------------------------
+
+snippet provide
+	<% provide(${1}, ${2:TARGET}) %>${3}
+
+snippet end
+	<% end %>${1}
+
+# form
+snippet form_for
+	<%= form_for(${1:#:resource}) do |f| %>
+	  ${2:TARGET}
+	<% end %>
+
+snippet field
+abbr    f.label ... f.text_field ...
+	<%= f.label ${1:#:name} %>
+	<%= f.text_field $1 %>${2}
+
+snippet field_tag
+abbr    label_tag ... text_field_tag ...
+	<%= label_tag ${1:#:name} %>
+	<%= text_field_tag $1, params[$1] %>${2}
+
+snippet password_field
+abbr    f.label ... f.text_field ...
+	<%= f.label ${1:#:name} %>
+	<%= f.password_field $1 %>${2}
+
+snippet submit
+	<%= f.submit "${1:TARGET}" %>${2}
+
+snippet render
+	<%= render ${1:TARGET} %>${2}
+
+snippet link_to
+	<%= link_to ${1:TARGET} %>${2}
