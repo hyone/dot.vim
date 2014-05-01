@@ -64,6 +64,7 @@ NeoBundleLazy 'cocopon/colorswatch.vim'
 NeoBundle 'c9s/perlomni.vim'
 NeoBundle 'deris/vim-textobj-enclosedsyntax'
 NeoBundle 'digitaltoad/vim-jade'
+NeoBundle "ekalinin/Dockerfile.vim"
 NeoBundle 'gkz/vim-ls'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'kana/vim-operator-user'
