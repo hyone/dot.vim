@@ -500,7 +500,7 @@ nnoremap F                <Nop>
 nnoremap <silent> F       :<C-u>UniteWithBufferDir -buffer-name=files_from_cwd buffer file file_mru bookmark file/new<CR>
 nnoremap R                <Nop>
 nnoremap <silent> R       :<C-u>Unite -start-insert -buffer-name=mrc buffer file_mru:long bookmark file file/new<CR>
-nnoremap <silent> <C-j>   :<C-u>Unite tab:no-current buffer<CR>
+nnoremap <silent> <C-j>   :<C-u>Unite buffer<CR>
 nnoremap <silent> <C-y>   :<C-u>Unite history/yank<CR>
 
 " "   move to an other window
@@ -728,8 +728,8 @@ nnoremap <silent> gb :<C-u>Unite buffer<CR>
 nnoremap <silent> gf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 "   register
 nnoremap <silent> gR :<C-u>Unite -buffer-name=register register<CR>
-"   buffer, tab
-nnoremap <silent> gr :<C-u>Unite -start-insert tab buffer file_mru<CR>
+"   buffer, mru
+nnoremap <silent> gr :<C-u>Unite -start-insert buffer file_mru<CR>
 nnoremap <silent> ga :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
 "   changelist
 nnoremap <silent> gC :<C-u>Unite change<CR>
@@ -1159,8 +1159,8 @@ augroup Unite
   autocmd FileType unite inoremap <silent><buffer><expr> <C-s> unite#do_action('above')
   autocmd FileType unite nnoremap <silent><buffer><expr> <C-v> unite#do_action('below')
   autocmd FileType unite inoremap <silent><buffer><expr> <C-v> unite#do_action('below')
-  autocmd FileType unite nnoremap <silent><buffer><expr> <C-t> unite#do_action('my_tabopen')
-  autocmd FileType unite inoremap <silent><buffer><expr> <C-t> unite#do_action('my_tabopen')
+  autocmd FileType unite nnoremap <silent><buffer><expr> <C-t> unite#do_action('tabdrop')
+  autocmd FileType unite inoremap <silent><buffer><expr> <C-t> unite#do_action('tabdrop')
   " file browse
   autocmd FileType unite nnoremap <silent><buffer><expr> f unite#smart_map('f', unite#do_action('vimfiler'))
   autocmd FileType unite inoremap <silent><buffer><expr> f unite#smart_map('f', unite#do_action('vimfiler'))
