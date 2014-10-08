@@ -1328,9 +1328,17 @@ let g:sonictemplate_vim_template_dir = [
 \   ]
 
 
-"   smartinput.vim   {{{2
+"   ag.vim   {{{2
 " ==================================================
 
+command! -nargs=+ -range AgCurrentBufferDir
+\ Ag <f-args> %:h
+
+
+
+"   smartinput.vim   {{{2
+" ==================================================
+"
 "   smart space and enter with parenthesis
 
 "   ()
