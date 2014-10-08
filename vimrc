@@ -761,31 +761,24 @@ nnoremap <silent> g+ :<C-u>Unite grep:<C-r>=expand('%:p:h')<CR> -buffer-name=gre
 nnoremap <silent> gz :<C-u>UniteResume<CR>
 
 "   unite rails
-nnoremap <silent> glg :<C-u>Unite rails/gemfile<CR>
-nnoremap <silent> glm :<C-u>Unite rails/model<CR>
-nnoremap <silent> glv :<C-u>Unite rails/view<CR>
-nnoremap <silent> glc :<C-u>Unite rails/controller<CR>
-nnoremap <silent> glh :<C-u>Unite rails/helper<CR>
-nnoremap <silent> gls :<C-u>Unite rails/stylesheet<CR>
-nnoremap <silent> glj :<C-u>Unite rails/javascript<CR>
-nnoremap <silent> glr :<C-u>Unite rails/route<CR>
-nnoremap <silent> gld :<C-u>Unite rails/db<CR>
-nnoremap <silent> gli :<C-u>Unite rails/lib<CR>
-nnoremap <silent> glt :<C-u>Unite rails/spec<CR>
 command! -nargs=0 UniteRails Unite
-\   rails/gemfile
 \   rails/model
 \   rails/view
 \   rails/controller
 \   rails/helper
+\   rails/mailer
 \   rails/stylesheet
 \   rails/javascript
+\   rails/lib
 \   rails/route
 \   rails/db
-\   rails/lib
+\   rails/schema
+\   rails/config
 \   rails/spec
-nnoremap <silent> gl  :<C-u>UniteRails<CR>
-nnoremap <silent> gll :<C-u>UniteRails<CR>
+\   rails/features
+\   rails/gemfile
+" \   rails/bundled_gem
+nnoremap <silent> gl :<C-u>UniteRails<CR>
 
 
 "   Function Keys
