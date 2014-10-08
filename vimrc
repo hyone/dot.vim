@@ -66,6 +66,7 @@ NeoBundle 'deris/vim-textobj-enclosedsyntax'
 NeoBundle 'digitaltoad/vim-jade'
 NeoBundle "ekalinin/Dockerfile.vim"
 NeoBundle 'gkz/vim-ls'
+NeoBundle 'groenewege/vim-less'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'kana/vim-operator-user'
 NeoBundle 'kana/vim-operator-replace'
@@ -83,6 +84,7 @@ NeoBundle 'mattn/vim-textobj-url'
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'motemen/git-vim'
 NeoBundle 'msanders/cocoa.vim'
+NeoBundle 'othree/html5.vim'
 " NeoBundle 'osyo-manga/vim-textobj-multiblock'
 " NeoBundle 'osyo-manga/vim-textobj-multitextobj'
 NeoBundle 'rgarver/Kwbd.vim'
@@ -94,6 +96,7 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'sgur/vim-textobj-parameter'
 NeoBundle 'sjl/gundo.vim'
 NeoBundle 'skwp/vim-rspec'
+NeoBundle 'slim-template/vim-slim'
 " NeoBundleLazy 'taichouchou2/neorspec.vim', {
 " \   'depends' : ['tpope/vim-rails', 'tpope/vim-dispatch'],
 " \   'autoload' : {
