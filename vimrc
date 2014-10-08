@@ -712,12 +712,12 @@ nnoremap <silent> qq    :<C-u>only<CR>
 "   quickfix-window
 nnoremap <silent> qj    :<C-u>cnext<CR>
 nnoremap <silent> qk    :<C-u>cprevious<CR>
-nnoremap <silent> qd    :<C-u>cclose<CR>
+nnoremap <silent> qc    :<C-u>cclose<CR>
 nnoremap <silent> qo    :<C-u>copen<CR>
 "   location-list window
 nnoremap <silent> qwj   :<C-u>lnext<CR>
 nnoremap <silent> qwk   :<C-u>lprevious<CR>
-nnoremap <silent> qwd   :<C-u>lclose<CR>
+nnoremap <silent> qwc   :<C-u>lclose<CR>
 nnoremap <silent> qwo   :<C-u>lopen<CR>
 
 
