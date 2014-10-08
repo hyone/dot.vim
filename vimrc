@@ -861,8 +861,11 @@ inoremap <C-c>[ <C-g>u[<CR>]<Esc>O
 inoremap <C-c>t  <Esc><C-u>:Unite sonictemplate<CR>
 
 "   smartchr.vim
+" --------------------------------------------------
+
+"   treat &= , += , -= , >= , <= , :=
 inoremap <expr> =
-\ search('\(&\<bar><bar>\<bar>+\<bar>-\<bar>/\<bar>>\<bar><\) \%#', 'bcn')
+\ search('\(&\<bar><bar>\<bar>+\<bar>-\<bar>/\<bar>>\<bar><\<bar>:\) \%#', 'bcn')
 \ ? '<bs>= '
 \ : search('\(*\<bar>!\<bar><bar><bar>\)\%#', 'bcn') 
 \   ? '= '
@@ -870,15 +873,35 @@ inoremap <expr> =
 \     ? '= '
 \     : smartchr#one_of(' = ', '=', ' == ', ' === ')
 
-" inoremap <expr> , smartchr#one_of(', ', ' => ', ',')
-inoremap <expr> + smartchr#one_of('+', ' + ', '++', ' ++ ')
-inoremap <expr> - smartchr#one_of('-',  ' - ', '--', ' -- ')
-inoremap <expr> % smartchr#one_of('%',  ' % ')
-inoremap <expr> * smartchr#one_of('*',  ' * ', '**', ' ** ')
+"   treat ' <- '
+inoremap <expr> -
+\ search('\(<\) \%#', 'bcn')
+\ ? '<bs>- '
+\ : smartchr#one_of('-',  ' - ', '--', ' -- ')
+
 inoremap <expr> <Bar>
 \ search(' \%#', 'bcn')
 \ ? smartchr#one_of('<Bar> ', '<Bar><Bar> ', '<Bar>')
 \ : smartchr#one_of(' <Bar> ', ' <Bar><Bar> ', '<Bar>')
+
+"   treat ' => '
+inoremap <expr> >
+\ search('\(=\<bar><bar>\) \%#', 'bcn')
+\ ? '<bs>> '
+\ : smartchr#one_of('>',  ' > ', ' >> ')
+
+"   treat ' =~ '
+inoremap <expr> ~
+\ search('\(=\) \%#', 'bcn')
+\ ? '<bs>~ '
+\ : '~'
+
+" inoremap <expr> , smartchr#one_of(', ', ' => ', ',')
+inoremap <expr> + smartchr#one_of('+', ' + ', '++', ' ++ ')
+inoremap <expr> % smartchr#one_of('%',  ' % ')
+inoremap <expr> * smartchr#one_of('*',  ' * ', '**', ' ** ')
+inoremap <expr> & smartchr#one_of('&',  ' & ', ' && ')
+inoremap <expr> < smartchr#one_of('<',  ' < ', ' << ')
 
 augroup MySmartChr
   autocmd!
