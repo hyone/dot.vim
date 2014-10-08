@@ -1191,8 +1191,8 @@ augroup Unite
   autocmd FileType unite inoremap <silent><buffer><expr> <C-s> unite#do_action('above')
   autocmd FileType unite nnoremap <silent><buffer><expr> <C-v> unite#do_action('below')
   autocmd FileType unite inoremap <silent><buffer><expr> <C-v> unite#do_action('below')
-  autocmd FileType unite nnoremap <silent><buffer><expr> <C-t> unite#do_action('tabdrop')
-  autocmd FileType unite inoremap <silent><buffer><expr> <C-t> unite#do_action('tabdrop')
+  autocmd FileType unite nnoremap <silent><buffer><expr> <C-t> unite#do_action('tabswitch')
+  autocmd FileType unite inoremap <silent><buffer><expr> <C-t> unite#do_action('tabswitch')
   " file browse
   autocmd FileType unite nnoremap <silent><buffer><expr> f unite#smart_map('f', unite#do_action('vimfiler'))
   autocmd FileType unite inoremap <silent><buffer><expr> f unite#smart_map('f', unite#do_action('vimfiler'))
