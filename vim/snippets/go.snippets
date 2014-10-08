@@ -1,0 +1,51 @@
+snippet func
+	func ${1:name}(${2:arguments}) ${3:return_type} {
+		${4:TARGET}
+	}
+
+snippet func_anonymous
+alias lambda
+	func(${1:arguments}) ${2:return_type} {
+		${3:TARGET}
+	}
+
+snippet import
+alias   imp
+	import ${1:TARGET}
+
+
+snippet interface
+	type ${1:NAME} interface {
+		${1:TARGET}
+	}
+
+snippet main
+	func main () {
+		${1:TARGET}
+	}
+
+snippet package
+alias   pk
+	package ${1:TARGET}
+
+snippet pf
+	fmt.Printf(${1:TARGET})
+snippet pt
+	fmt.Print(${1:TARGET})
+snippet pln
+	fmt.Println(${1:TARGET})
+
+snippet select
+	select {
+	${2:body}
+	}
+
+snippet struct
+	type ${1:NAME} struct {
+		${1:TARGET}
+	}
+
+snippet switch
+	switch ${1:conditions} {
+	${2:body}
+	}

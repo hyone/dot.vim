@@ -1,4 +1,6 @@
 # Some useful Unicode entities
+# ----------------------------------------------
+
 # Non-Breaking Space
 snippet nbs
 	&nbsp;
@@ -47,7 +49,11 @@ snippet backspace
 # ⎋
 snippet escape
 	&#x238B;
+
+
 # Generic Doctype
+# ----------------------------------------------
+
 snippet doctype HTML 4.01 Strict
 	<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN""
 	"http://www.w3.org/TR/html4/strict.dtd">
@@ -95,6 +101,11 @@ snippet docxt
 snippet docx
 	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
 	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+
+# HTML4, XHTML
+# ----------------------------------------------
+
 snippet html
 	<html>
 	${1}
@@ -155,11 +166,6 @@ snippet mailto
 	<a href="mailto:${1:joe@example.com}?subject=${2:feedback}">${3:email me}</a>
 snippet meta
 	<meta name="${1:name}" content="${2:content}"`Close()`>${3}
-snippet table
-	<table border="${1:0}">
-		<tr><th>${2:Header}</th></tr>
-		<tr><th>${3:Data}</th></tr>
-	</table>${4}
 snippet textarea
 	<textarea name="${1:Name}" rows="${2:8}" cols="${3:40}">${4}</textarea>${5}
 
@@ -177,70 +183,142 @@ alias scr
 	<script type="text/javascript">
 		${1}
 	</script>
-snippet scriptsrc
+
+snippet script-src
 alias scrc
 	<script src="${1}.js" type="text/javascript"></script>${2}
 
 snippet script-angularjs
-	<script src="http://code.angularjs.org/1.2.15/angular.min.js" type="text/javascript"></script>
+	<script src="http://code.angularjs.org/1.2.25/angular.min.js" type="text/javascript"></script>
 snippet script-bootstrap
 	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" type="text/javascript"></script>
 snippet script-jquery
 	<script src="http://code.jquery.com/jquery-2.1.0.min.js" type="text/javascript" charset="utf-8"></script>
 
+
+snippet id
+alias   id
+abbr    id="..."
+options word
+	id="${1}"${2}
+
 snippet class
 alias   cls
 abbr    class="..."
+options word
 	class="${1}"${2}
+
 
 snippet div
 	<div>${1:TARGET}</div>
 snippet divclass
 alias   divc
+options word
 	<div class="${1}">${2:TARGET}</div>
 
 snippet h1
+options word
 	<h1>${1:TARGET}</h1>
 snippet h2
+options word
 	<h2>${1:TARGET}</h2>
 snippet h3
+options word
 	<h3>${1:TARGET}</h3>
 snippet h4
+options word
 	<h4>${1:TARGET}</h4>
 snippet h5
+options word
 	<h5>${1:TARGET}</h5>
 snippet h6
+options word
 	<h6>${1:TARGET}</h6>
 
 snippet span
+options word
 	<span>${1:TARGET}</span>
 
 snippet dl
+options word
 	<dl>${1:TARGET}</dl>
 snippet dd
+options word
 	<dd>${1:TARGET}</dd>
 snippet dt
+options word
 	<dt>${1:TARGET}</dt>
 snippet ol
+options word
 	<ol>${1:TARGET}</ol>
 snippet ul
+options word
 	<ul>${1:TARGET}</ul>
 snippet li
+options word
 	<li>${1:TARGET}</li>
 
+snippet p
+options word
+	<p>${1:TARGET}</p>
+
 snippet a
+options word
 	<a href="${1}">${2:TARGET}</a>
+
+snippet br 
+options word
+	<br />
+
+snippet strong
+options word
+	<strong>${1:TARGET}</strong>
+snippet b
+options word
+	<b>${1:TARGET}</b>
+snippet i 
+options word
+	<i>${1:TARGET}</i>
+
+#   table
+snippet table
+options word
+	<table>
+	  <tr><th>${2:TARGET}</th></tr>
+	</table>
+snippet th
+options word
+	<th>${1:TARGET}</th>
+snippet tr
+options word
+	<tr>${1:TARGET}</tr>
+snippet td
+options word
+	<td>${1:TARGET}</td>
 
 #   form
 snippet label
+options word
 	<label>${1:TARGET}</label>
 snippet labelfor
+options word
 	<label for="${2:$1}">${1:TARGET}</label>
 
 snippet select
+options word
 	<select>${1:TARGET}</select>
 snippet option
+options word
 	<option value="${1:TARGET}">${2:$1}</option>
 
 snippet input
+options word
 	<input type="${1:text/submit/button/radio/checkbox/hidden}">
+
+
+# HTML5
+# ----------------------------------------------
+
+snippet section
+options word
+	<section>${1:TARGET}</section>

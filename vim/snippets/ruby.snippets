@@ -51,8 +51,9 @@ abbr    if ... then ... else ... end (oneline)
 snippet begin
 abbr    begin ... rescue ... end
 	begin
-	  ${3:TARGET}
+	  ${4:TARGET}
 	rescue ${1:#:StandardError} => ${2:e}
+	  ${3}
 	end
 
 snippet blockvar
@@ -69,6 +70,10 @@ snippet dovar
 abbr    do |var| ... end
 	do |${1:#:var}| ${2:TARGET} end
 
+snippet bar
+abbr |...| ...
+options word
+	|${1:#:var}| ${2}
 
 # rspec
 # ------------------------------------------------------------------------
