@@ -729,7 +729,7 @@ nnoremap <silent> g.    g;
 
 "   unite.vim
 nnoremap <silent> gb :<C-u>Unite buffer<CR>
-nnoremap <silent> gf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent> gF :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 "   register
 nnoremap <silent> gR :<C-u>Unite -buffer-name=register register<CR>
 "   buffer, mru
@@ -805,6 +805,8 @@ inoremap <C-b> <Left>
 inoremap <C-a> <Home>
 inoremap <C-e> <End>
 
+" "   close popup window if it shows
+" inoremap <expr><CR> pumvisible() ? neocomplcache#cancel_popup()."\<CR>" : "\<CR>"
 "   aware when completion popup window
 inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 "   close when completation popup window shows
@@ -1067,6 +1069,13 @@ else
 endif
 
 
+"   altercmd.vim   {{{2
+" ==================================================
+
+"   MUST call this before using AlterCommand
+call altercmd#load()
+
+
 "   yankring.vim  {{{2
 " ==================================================
 "   Whether we should map the . operator
@@ -1178,8 +1187,7 @@ function! s:my_tabopen.func(candidates)
     call unite#take_action('tabopen', a:candidates)
   endif
 endfunction
-call unite#custom_action('file', 'my_tabopen', s:my_tabopen)
-call unite#custom_action('tab',  'my_tabopen', s:my_tabopen)
+call unite#custom_action('file,tab', 'my_tabopen', s:my_tabopen)
 
 " Unite from ex command output
 command! -nargs=1 -complete=command UniteExCommand Unite output:<args>
@@ -1311,13 +1319,6 @@ let Tlist_Enable_Fold_Column = 0
 
 " disable key mapping 'K' to invoke man to the word on which current cursror is
 let objc_man_key = ''
-
-
-"   altercmd.vim   {{{2
-" ==================================================
-
-"   MUST call this before using AlterCommand
-call altercmd#load()
 
 
 "   sonictemplate.vim   {{{2
