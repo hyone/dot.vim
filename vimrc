@@ -1226,6 +1226,8 @@ augroup END
 
 let g:vimfiler_safe_mode_by_default = 0
 
+let g:vimfiler_edit_action = 'tabopen'
+
 augroup vimfiler
   autocmd!
   " autocmd FileType vimfiler nmap <buffer> q <Plug>(vimfiler_exit)
