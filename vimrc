@@ -389,7 +389,7 @@ noremap <silent> <Esc>l      L
 "   rc: control blocks                  do, begin, if, unless, case
 "   rd: do statement                    do
 "   rr: any block including above all   all blocks
-let g:textobj_ruby_more_mappings = 1
+let g:textobj_ruby_more_mappings = 0
 
 "   surround.vim
 " --------------------------------------------------
