@@ -484,8 +484,8 @@ nnoremap <Space>          i<C-r>=<SID>insert_one_character()<Return>
 "   Jump to older entry in the tag stack ( i.e. default behavior of CTRL-T )
 nnoremap <C-a>            <C-t>
 
-"   Redraw to move cursor at top of window
-nnoremap <C-l>            z<CR>
+" "   Redraw to move cursor at top of window
+" nnoremap <C-l>            z<CR>
 
 "   go cyclical in a tab list
 "   use gt, gT to enable to specify count
@@ -506,6 +506,7 @@ nnoremap R                <Nop>
 nnoremap <silent> R       :<C-u>Unite -start-insert -buffer-name=mrc buffer file_mru:long bookmark file file/new<CR>
 nnoremap <silent> <C-j>   :<C-u>Unite buffer<CR>
 nnoremap <silent> <C-y>   :<C-u>Unite history/yank<CR>
+nnoremap <silent> <C-l>   :<C-u>VimFilerBufferDir -split -horizontal -toggle<CR>
 
 " "   move to an other window
 " nnoremap <C-n>            <C-w>w
