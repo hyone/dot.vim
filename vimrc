@@ -95,14 +95,7 @@ NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'sgur/vim-textobj-parameter'
 NeoBundle 'sjl/gundo.vim'
-NeoBundle 'skwp/vim-rspec'
 NeoBundle 'slim-template/vim-slim'
-" NeoBundleLazy 'taichouchou2/neorspec.vim', {
-" \   'depends' : ['tpope/vim-rails', 'tpope/vim-dispatch'],
-" \   'autoload' : {
-" \     'commands' : ['RSpec', 'RSpecAll', 'RSpecCurrent', 'RSpecNearest', 'RSpecRetry']
-" \   }
-" \ }
 NeoBundle 'superbrothers/vim-quickrun-markdown-gfm'
 NeoBundle 't9md/vim-textobj-function-ruby'
 NeoBundle 'thinca/vim-ft-svn_diff'
@@ -124,6 +117,7 @@ NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'tyru/operator-camelize.vim'
 NeoBundle 'tyru/vim-altercmd'
 NeoBundle 'vim-scripts/JSON.vim'
+NeoBundle 'vim-scripts/AnsiEsc.vim'
 "   vim-scripts repos
 NeoBundle 'Align'
 NeoBundle 'matchit.zip'
@@ -1250,11 +1244,28 @@ let g:quickrun_config = {
 \       "runner" : "vimproc",
 \       "runner/vimproc/updatetime" : 40,
 \   },
+\   "ruby.rspec" : {
+\     "command": "rspec",
+\     "cmdopt": "-c -fd --tty"
+\   },
+\   "ruby.rspec_line" : {
+\     "command": "rspec",
+\     "exec": "%c %s:%{line('.')} %o" ,
+\     "cmdopt": '-c -fd --tty'
+\   },
 \   "markdown" : {
 \       "type": "markdown/gfm",
 \       "outputter": "browser"
 \   },
 \}
+
+" colorize rspec output
+augroup quickrun
+  autocmd!
+  autocmd FileType quickrun AnsiEsc
+augroup END
+
+
 
 
 "   NERD_commenter.vim  {{{2

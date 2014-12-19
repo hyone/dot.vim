@@ -8,10 +8,8 @@ nnoremap <silent><buffer> <LocalLeader>c :Rcontroller<CR>
 nnoremap <silent><buffer> <LocalLeader>v :Rview<CR>
 nnoremap <silent><buffer> <LocalLeader>u :Runittest<CR>
 
-" vim-rspec
-nnoremap <silent><buffer> <LocalLeader>r  :RunSpec<CR>
-nnoremap <silent><buffer> <LocalLeader>rr :RunSpec<CR>
-nnoremap <silent><buffer> <LocalLeader>rl :RunSpecLine<CR>
+" rspec
+nnoremap <silent><buffer> <Leader>rr :<C-u>QuickRun ruby.rspec_line<CR>
 
 
 "   vim-smartinput  {{{1
