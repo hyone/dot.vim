@@ -75,6 +75,11 @@ abbr |...| ...
 options word
 	|${1:#:var}| ${2}
 
+snippet case
+	case ${1:#:condition}
+        when ${2:#:condition}
+        end
+
 # rspec
 # ------------------------------------------------------------------------
 
@@ -110,6 +115,10 @@ abbr    shared_examples_for do ... end
 	  ${2}
 	end
 
+snippet subject
+abbr    subject { ... }
+	subject { ${1:TARGET} }
+
 snippet before
 abbr    before { ... }
 	before { ${1:TARGET} }
@@ -117,7 +126,6 @@ abbr    before { ... }
 snippet specify
 abbr    specify { ... }
 	specify { ${1:TARGET} }
-
 
 # rails
 # ------------------------------------------------------------------------

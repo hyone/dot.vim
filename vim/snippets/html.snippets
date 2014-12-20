@@ -210,8 +210,10 @@ options word
 
 
 snippet div
+options word
 	<div>${1:TARGET}</div>
-snippet divclass
+
+snippet div-class
 alias   divc
 options word
 	<div class="${1}">${2:TARGET}</div>
@@ -238,6 +240,11 @@ options word
 snippet span
 options word
 	<span>${1:TARGET}</span>
+
+snippet span-class
+alias   spanc
+options word
+	<span class="${1}">${2:TARGET}</span>
 
 snippet dl
 options word
