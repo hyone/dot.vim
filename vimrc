@@ -1574,6 +1574,11 @@ endfunction
 "   Events (autocmd)   {{{1
 " ===============================================================================
 
+augroup AutoCD
+  autocmd!
+  autocmd BufEnter * execute ":lcd " . expand("%:p:h")
+augroup end
+
 augroup Quickfix
   "   Remove ALL autocommands for the current group.
   autocmd!
