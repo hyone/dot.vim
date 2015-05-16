@@ -127,6 +127,7 @@ NeoBundle 'sudo.vim'
 " NeoBundle 'taglist.vim'
 "   non github repos
 NeoBundle 'git://repo.or.cz/vcscommand'
+NeoBundle 'wavded/vim-stylus'
 
 if has('vim_starting')
   filetype plugin indent on
