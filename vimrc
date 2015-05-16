@@ -93,6 +93,7 @@ NeoBundle 'rking/ag.vim'
 NeoBundle 'rosstimson/bats.vim'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'scrooloose/syntastic'
 NeoBundle 'sgur/vim-textobj-parameter'
 NeoBundle 'sjl/gundo.vim'
 NeoBundle 'slim-template/vim-slim'
@@ -1433,6 +1434,16 @@ call smartinput#define_rule({
 \   'char'  : '<BS>',
 \   'input' : '<Esc>ddd0i<BS>',
 \ })
+
+
+"   syntastic.vim   {{{2
+" ==================================================
+
+let g:syntastic_mode_map = {
+\   'mode': 'passive',
+\   'active_filetypes': ['ruby']
+\ }
+let g:syntastic_ruby_checkers = ['rubocop']
 
 
 " ===============================================================================
