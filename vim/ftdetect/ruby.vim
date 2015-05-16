@@ -5,4 +5,5 @@ autocmd BufNewFile,BufRead Berksfile setfiletype ruby
 autocmd BufNewFile,BufRead Thorfile setfiletype ruby
 autocmd BufNewFile,BufRead Vagrantfile setfiletype ruby
 
+autocmd BufNewFile,BufRead *.jbuilder setfiletype ruby
 autocmd BufNewFile,BufRead *_spec.rb set filetype=ruby.rspec
