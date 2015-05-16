@@ -1249,9 +1249,20 @@ let g:quickrun_config = {
 \   },
 \   "ruby.rspec" : {
 \     "command": "rspec",
+\     "exec": "bundle exec %c %s %o",
 \     "cmdopt": "-c -fd --tty"
 \   },
 \   "ruby.rspec_line" : {
+\     "command": "rspec",
+\     "exec": "bundle exec %c %s:%{line('.')} %o" ,
+\     "cmdopt": '-c -fd --tty'
+\   },
+\   "ruby.rspec.raw" : {
+\     "command": "rspec",
+\     "exec": "%c %s %o",
+\     "cmdopt": "-c -fd --tty"
+\   },
+\   "ruby.rspec_line.raw" : {
 \     "command": "rspec",
 \     "exec": "%c %s:%{line('.')} %o" ,
 \     "cmdopt": '-c -fd --tty'
@@ -1260,7 +1271,7 @@ let g:quickrun_config = {
 \       "type": "markdown/gfm",
 \       "outputter": "browser"
 \   },
-\}
+\ }
 
 " colorize rspec output
 augroup quickrun
