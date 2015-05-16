@@ -80,6 +80,7 @@ snippet case
         when ${2:#:condition}
         end
 
+
 # rspec
 # ------------------------------------------------------------------------
 
@@ -102,16 +103,16 @@ abbr    it do ... end
 	it ${1} do ${2:TARGET} end
 
 snippet let
-abbr    let ( ... ) { ... }
-	let (${1}) { ${2:TARGET} }
+abbr    let( ... ) { ... }
+	let(${1}) { ${2:TARGET} }
 
 snippet let!
-abbr    let! ( ... ) { ... }
-	let! (${1}) { ${2:TARGET} }
+abbr    let!( ... ) { ... }
+	let!(${1}) { ${2:TARGET} }
 
-snippet shared_examples_for
-abbr    shared_examples_for do ... end
-	shared_examples_for ${1} do
+snippet shared_examples
+abbr    shared_examples do ... end
+	shared_examples ${1} do
 	  ${2}
 	end
 
@@ -120,6 +121,9 @@ abbr    subject { ... }
 	subject { ${1:TARGET} }
 
 snippet before
+abbr    before do ... end
+	before do ${1:TARGET} end
+snippet before1
 abbr    before { ... }
 	before { ${1:TARGET} }
 
@@ -127,5 +131,10 @@ snippet specify
 abbr    specify { ... }
 	specify { ${1:TARGET} }
 
+
 # rails
 # ------------------------------------------------------------------------
+
+snippet included
+abbr    included do ... end
+	included do ${1:TARGET} end
