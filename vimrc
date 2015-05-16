@@ -752,8 +752,8 @@ nnoremap <silent> g/ :<C-u>Unite -buffer-name=search line -start-insert<CR>
 nnoremap <silent> g: :<C-u>Unite grep -buffer-name=grep -start-insert<CR>
 "   grep with the word on the current cursor
 nnoremap <silent> g; :<C-u>UniteWithCursorWord grep:. -buffer-name=grep -start-insert<CR>
-"   grep with the directory of the current buffer belongs
-nnoremap <silent> g+ :<C-u>Unite grep:<C-r>=expand('%:p:h')<CR> -buffer-name=grep -start-insert<CR>
+"   grep with the directory of the current project root
+nnoremap <silent> g+ :<C-u>Unite grep:<C-r>=unite#util#path2project_directory(expand('%'))<CR> -buffer-name=grep -start-insert<CR>
 "   resume
 nnoremap <silent> gz :<C-u>UniteResume<CR>
 
@@ -1164,7 +1164,8 @@ let g:unite_source_history_yank_enable = 1
 let g:neomru#file_mru_limit=100000
 " limit of candidate items of async search
 let g:unite_source_file_rec_max_cache_files=100000
-
+" use 'ag' command for performance
+let g:unite_source_rec_async_command='ag --nocolor --nogroup --ignore ".git" -g ""'
 " Grep
 let g:unite_enable_ignore_case = 1
 let g:unite_enable_smart_case = 1
@@ -1381,8 +1382,11 @@ let g:sonictemplate_vim_template_dir = [
 "   ag.vim   {{{2
 " ==================================================
 
-command! -nargs=+ -range AgCurrentBufferDir
+command! -nargs=+ -range AgInCurrentBufferDir
 \ Ag <f-args> %:h
+
+command! -nargs=+ -range AgInProject
+\ execute 'Ag ' . <f-args> . ' ' . unite#util#path2project_directory(expand('%'))
 
 
 "   smartinput.vim   {{{2
