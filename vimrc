@@ -1279,7 +1279,26 @@ augroup quickrun
   autocmd FileType quickrun AnsiEsc
 augroup END
 
+" detect whether or not to be on quickrun execution
+" From http://d.hatena.ne.jp/osyo-manga/20130316/1363403701
 
+let g:is_quickrun_started = 0
+
+let s:hook = {
+\  "name": "is_started",
+\  "kind": "hook",
+\ }
+
+function! s:hook.init(...)
+  let g:is_quickrun_started = 1
+endfunction
+
+function! s:hook.sweep(...)
+  let g:is_quickrun_started = 0
+endfunction
+
+call quickrun#module#register(s:hook, 1)
+unlet s:hook
 
 
 "   NERD_commenter.vim  {{{2
@@ -1364,7 +1383,6 @@ let g:sonictemplate_vim_template_dir = [
 
 command! -nargs=+ -range AgCurrentBufferDir
 \ Ag <f-args> %:h
-
 
 
 "   smartinput.vim   {{{2
@@ -1598,10 +1616,18 @@ endfunction
 "   Events (autocmd)   {{{1
 " ===============================================================================
 
+" disable autocd on quickrun execution
+function! AutoCD()
+  if get(g:, "is_quickrun_started", 0)
+    return
+  endif
+  execute ":lcd " . expand("%:p:h")
+endfunction
+
 augroup AutoCD
   autocmd!
-  autocmd BufEnter * execute ":lcd " . expand("%:p:h")
-augroup end
+  autocmd BufEnter * call AutoCD()
+augroup END
 
 augroup Quickfix
   "   Remove ALL autocommands for the current group.
