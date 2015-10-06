@@ -1169,10 +1169,20 @@ let g:neomru#file_mru_limit=100000
 " limit of candidate items of async search
 let g:unite_source_file_rec_max_cache_files=100000
 " use 'ag' command for performance
-let g:unite_source_rec_async_command='ag --nocolor --nogroup --ignore ".git" -g ""'
+let g:unite_source_rec_async_command = [
+  \   'ag', '--nocolor', '--nogroup', '--ignore', '".git/"', '-g', '""'
+  \ ]
 " Grep
 let g:unite_enable_ignore_case = 1
 let g:unite_enable_smart_case = 1
+
+" ignore files
+call unite#custom_source('file_rec,file_rec/async',
+  \    'ignore_pattern', join([
+  \      '\.git/',
+  \      '\.bundle/',
+  \      'node_modules/',
+  \    ], '\|'))
 
 " the silver searcher
 if executable('ag')
