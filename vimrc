@@ -38,7 +38,8 @@ if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-call neobundle#rc(expand('~/.vim/bundle/'))
+call neobundle#begin(expand('~/.vim/bundle/'))
+
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 "   github
@@ -129,6 +130,8 @@ NeoBundle 'sudo.vim'
 "   non github repos
 NeoBundle 'git://repo.or.cz/vcscommand'
 NeoBundle 'wavded/vim-stylus'
+
+call neobundle#end()
 
 if has('vim_starting')
   filetype plugin indent on
