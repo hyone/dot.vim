@@ -868,9 +868,9 @@ inoremap <C-c>t  <Esc><C-u>:Unite sonictemplate<CR>
 
 "   treat &= , += , -= , >= , <= , :=
 inoremap <expr> =
-\ search('\(&\<bar><bar>\<bar>+\<bar>-\<bar>/\<bar>>\<bar><\<bar>:\) \%#', 'bcn')
+\ search('\(&\<bar><bar>\<bar>+\<bar>-\<bar>/\<bar>>\<bar><\<bar>:\<bar>!=\) \%#', 'bcn')
 \ ? '<bs>= '
-\ : search('\(*\<bar>!\<bar><bar><bar>\)\%#', 'bcn') 
+\ : search('\(*\<bar>!\<bar><bar><bar>\)\%#', 'bcn')
 \   ? '= '
 \   : search('[^=] \%#', 'bcn')
 \     ? '= '
