@@ -66,6 +66,7 @@ NeoBundle 'c9s/perlomni.vim'
 NeoBundle 'deris/vim-textobj-enclosedsyntax'
 NeoBundle 'digitaltoad/vim-jade'
 NeoBundle "ekalinin/Dockerfile.vim"
+NeoBundle "elixir-lang/vim-elixir"
 NeoBundle 'gkz/vim-ls'
 NeoBundle 'groenewege/vim-less'
 NeoBundle 'itchyny/lightline.vim'
