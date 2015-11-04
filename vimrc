@@ -86,10 +86,12 @@ NeoBundle 'mattn/vim-textobj-url'
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'motemen/git-vim'
 NeoBundle 'msanders/cocoa.vim'
+NeoBundle 'mxw/vim-jsx'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'othree/yajs.vim'
 " NeoBundle 'osyo-manga/vim-textobj-multiblock'
 " NeoBundle 'osyo-manga/vim-textobj-multitextobj'
+NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'rgarver/Kwbd.vim'
 NeoBundle 'rhysd/vim-textobj-ruby'
 NeoBundle 'rking/ag.vim'
@@ -1494,6 +1496,13 @@ let g:syntastic_mode_map = {
 \ }
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_javascript_checkers = ['eslint']
+
+
+"   vim-jsx   {{{2
+" ==================================================
+
+" enable jsx syntax highlighting and indenting with .js files
+let g:jsx_ext_required = 0
 
 
 " ===============================================================================
