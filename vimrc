@@ -890,9 +890,9 @@ inoremap <expr> <Bar>
 \ ? smartchr#one_of('<Bar> ', '<Bar><Bar> ', '<Bar>')
 \ : smartchr#one_of(' <Bar> ', ' <Bar><Bar> ', '<Bar>')
 
-"   treat ' => '
+"   treat ' => ', ' -> ' ' |> '
 inoremap <expr> >
-\ search('\(=\<bar><bar>\) \%#', 'bcn')
+\ search('\(=\<bar>-\<bar><bar>\) \%#', 'bcn')
 \ ? '<bs>> '
 \ : smartchr#one_of('>',  ' > ', ' >> ')
 
