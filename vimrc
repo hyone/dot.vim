@@ -869,7 +869,7 @@ inoremap <C-c>t  <Esc><C-u>:Unite sonictemplate<CR>
 "   smartchr.vim
 " --------------------------------------------------
 
-"   treat &= , += , -= , >= , <= , :=
+"   treat: &= , += , -= , >= , <= , :=
 inoremap <expr> =
 \ search('\(&\<bar><bar>\<bar>+\<bar>-\<bar>/\<bar>>\<bar><\<bar>:\<bar>!=\) \%#', 'bcn')
 \ ? '<bs>= '
@@ -879,7 +879,7 @@ inoremap <expr> =
 \     ? '= '
 \     : smartchr#one_of(' = ', '=', ' == ', ' === ')
 
-"   treat ' <- '
+"   treat: <-
 inoremap <expr> -
 \ search('\(<\) \%#', 'bcn')
 \ ? '<bs>- '
@@ -890,13 +890,13 @@ inoremap <expr> <Bar>
 \ ? smartchr#one_of('<Bar> ', '<Bar><Bar> ', '<Bar>')
 \ : smartchr#one_of(' <Bar> ', ' <Bar><Bar> ', '<Bar>')
 
-"   treat ' => ', ' -> ' ' |> '
+"   treat: => , -> , |> , <>
 inoremap <expr> >
-\ search('\(=\<bar>-\<bar><bar>\) \%#', 'bcn')
+\ search('\(=\<bar>-\<bar><bar>\<bar><\) \%#', 'bcn')
 \ ? '<bs>> '
 \ : smartchr#one_of('>',  ' > ', ' >> ')
 
-"   treat ' =~ '
+"   treat: =~
 inoremap <expr> ~
 \ search('\(=\) \%#', 'bcn')
 \ ? '<bs>~ '
@@ -1234,6 +1234,8 @@ augroup Unite
   " hit <ESC> twice to exit Unite
   autocmd FileType unite nnoremap <silent> <buffer> <ESC> :q<cr>
   autocmd FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<cr>
+
+  autocmd FileType unite nnoremap <buffer> <C-p> <Plug>(unite_redraw)
 augroup END
 
 
@@ -1410,6 +1412,8 @@ command! -nargs=+ -range AgInProject
 " ==================================================
 "
 "   smart space and enter with parenthesis
+
+" call smartinput#clear_rules()
 
 "   ()
 call smartinput#map_to_trigger('i', '<Space>', '<Space>', '<Space>')
