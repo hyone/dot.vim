@@ -747,6 +747,8 @@ nnoremap <silent> gh :<C-u>Unite help<CR>
 nnoremap <silent> gj :<C-u>Unite jump<CR>
 "   search in the current project
 nnoremap <silent> gp :<C-u>Unite file_rec/async:!<CR>
+nnoremap <silent> gP :<C-u>Unite file_rec/git<CR>
+" nnoremap <silent> gP :<C-u>Unite file_rec:!<CR>
 "   neosnippet
 nnoremap <silent> gs :<C-u>Unite snippet<CR>
 "   tab
@@ -1170,29 +1172,34 @@ let g:unite_source_history_yank_enable = 1
 " file_mru limits for quick start
 let g:neomru#file_mru_limit=100000
 " limit of candidate items of async search
-let g:unite_source_file_rec_max_cache_files=100000
-" use 'ag' command for performance
-let g:unite_source_rec_async_command = [
-  \   'ag', '--nocolor', '--nogroup', '--ignore', '".git/"', '-g', '""'
-  \ ]
-" Grep
-let g:unite_enable_ignore_case = 1
-let g:unite_enable_smart_case = 1
-
-" ignore files
-call unite#custom_source('file_rec,file_rec/async',
-  \    'ignore_pattern', join([
-  \      '\.git/',
-  \      '\.bundle/',
-  \      'node_modules/',
-  \    ], '\|'))
-
-" the silver searcher
+let g:unite_source_file_rec_max_cache_files=10000
+" use 'ag' command for performance if possible
 if executable('ag')
+  let g:unite_source_rec_async_command = [
+    \   'ag', '--nocolor', '--nogroup', '--vimgrep',
+    \   '--smart-case', '--follow', '--hidden',
+    \   '--skip-vcs-ignores', '--ignore', '.git/',
+    \   '-g', ''
+    \ ]
   let g:unite_source_grep_command = 'ag'
   let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
   let g:unite_source_grep_recursive_opt = ''
 endif
+" Grep
+let g:unite_enable_ignore_case = 1
+let g:unite_enable_smart_case = 1
+" ignore files
+let s:file_rec_ignore_globs = [
+  \   '*.png',
+  \   '*.jpg',
+  \   '*.gif',
+  \   '.*.swp',
+  \   '.*.swo',
+  \   '**/node_modules/**'
+  \ ]
+call unite#custom#source('file_rec', 'ignore_globs', s:file_rec_ignore_globs)
+call unite#custom#source('file_rec/async', 'ignore_globs', s:file_rec_ignore_globs)
+call unite#custom#source('file_rec/git', 'ignore_globs', s:file_rec_ignore_globs)
 
 " unified command to open as a new tab between buffer, file and tab sources
 let s:my_tabopen = { 'is_selectable' : 1 }
