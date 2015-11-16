@@ -55,6 +55,7 @@ NeoBundle 'LeafCage/yankround.vim'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neomru.vim', { 'depends': [ 'Shougo/unite.vim' ] }
 NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neoyank.vim'
 NeoBundle 'Shougo/unite.vim', { 'depends': [ 'Shougo/vimproc.vim' ] }
 NeoBundle 'Shougo/unite-help', { 'depends': [ 'Shougo/unite.vim' ] }
 NeoBundle 'Shougo/vimfiler',  { 'depends': [ 'Shougo/unite.vim' ] }
