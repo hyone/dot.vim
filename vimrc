@@ -102,8 +102,8 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'sgur/vim-textobj-parameter'
 NeoBundle 'sjl/gundo.vim'
+NeoBundle 'shime/vim-livedown'
 NeoBundle 'slim-template/vim-slim'
-NeoBundle 'superbrothers/vim-quickrun-markdown-gfm'
 NeoBundle 't9md/vim-textobj-function-ruby'
 NeoBundle 'thinca/vim-ft-svn_diff'
 " NeoBundle 'thinca/vim-guicolorscheme'
@@ -1294,10 +1294,6 @@ let g:quickrun_config = {
 \     "command": "rspec",
 \     "exec": "%c %s:%{line('.')} %o" ,
 \     "cmdopt": '-c -fd --tty'
-\   },
-\   "markdown" : {
-\       "type": "markdown/gfm",
-\       "outputter": "browser"
 \   },
 \ }
 
