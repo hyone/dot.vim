@@ -1,0 +1,36 @@
+snippet def
+abbr    def ... do ... end
+	def ${1:#:method_name} do
+          ${2:TARGET}
+        end
+
+snippet def1
+abbr    def ..., do: ...
+	def ${1:#:method_name}, do: ${2:TARGET}
+
+snippet defmodule
+abbr    defmodule ... do ... end
+	defmodule ${1:#:module_name} do
+          ${2:TARGET}
+        end
+
+snippet do
+abbr    do ... end
+	do ${1:TARGET} end
+
+snippet fn
+options word
+abbr    fn ... -> ...
+	fn${1:#:signature} -> ${2:TARGET} end
+
+snippet .
+options word
+	`' '`-> ${1}
+
+snippet ,
+options word
+# if cursor is at start-of-line or before space, do not input prefix space
+	`search('\(^\|\s\+\)\%#', 'bcn') ? '' : ' '`|> ${1}
+
+snippet puts
+	IO.puts ${1:TARGET}
