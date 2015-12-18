@@ -1126,7 +1126,7 @@ let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 " Define dictionary.
 let g:neocomplcache_dictionary_filetype_lists = {
   \ 'default' : '',
-  \ 'ruby' : $HOME.'/.vim/dict/ruby.dict',
+  \ 'ruby' : $HOME.'/.vim/dict/ruby.dict' . ',' . $HOME .'/.vim/dict/ruby/rails.dict',
   \ 'scheme' : $HOME.'/.gosh_completions',
   \ 'vimshell' : $HOME.'/.vimshell_hist'
   \ }
