@@ -752,7 +752,7 @@ nnoremap <silent> gl :<C-u>Unite line<CR>
 nnoremap <silent> gp :<C-u>Unite file_rec/async:!<CR>
 nnoremap <silent> gP :<C-u>Unite file_rec/git<CR>
 " nnoremap <silent> gP :<C-u>Unite file_rec:!<CR>
-"   neosnippet
+"   snippets
 nnoremap <silent> gs :<C-u>Unite snippet<CR>
 "   tab
 nnoremap <silent> gt :<C-u>Unite tab:no-current<CR>
