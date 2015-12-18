@@ -746,6 +746,8 @@ nnoremap <silent> gC :<C-u>Unite change<CR>
 nnoremap <silent> gh :<C-u>Unite help<CR>
 "   jumplist
 nnoremap <silent> gj :<C-u>Unite jump<CR>
+"   search in current file
+nnoremap <silent> gl :<C-u>Unite line<CR>
 "   search in the current project
 nnoremap <silent> gp :<C-u>Unite file_rec/async:!<CR>
 nnoremap <silent> gP :<C-u>Unite file_rec/git<CR>
@@ -785,7 +787,7 @@ command! -nargs=0 UniteRails Unite
 \   rails/features
 \   rails/gemfile
 " \   rails/bundled_gem
-nnoremap <silent> gl :<C-u>UniteRails<CR>
+" nnoremap <silent> gl :<C-u>UniteRails<CR>
 
 
 "   Function Keys
