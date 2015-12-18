@@ -1,0 +1,20 @@
+snippet beforeEach
+	beforeEach(() => {
+		${1:TARGET}
+	});
+
+snippet describe
+alias   desc
+	describe('${1:description}', () => {
+		${2:TARGET}
+	});
+
+snippet context
+	context('${1:description}', () => {
+		${2:TARGET}
+	});
+
+snippet it
+	it('${1:description}', (${2:#:done}) => {
+		${3:TARGET}
+	});

@@ -110,6 +110,10 @@ snippet html
 	<html>
 	${1}
 	</html>
+snippet html5
+	<html lang="${1}">
+	${2}
+	</html>
 snippet xhtml
 	<html xmlns="http://www.w3.org/1999/xhtml">
 	${1}
@@ -121,6 +125,12 @@ snippet body
 snippet head
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>${1:TARGET}</title>
+		${2}
+	</head>
+snippet head5
+	<head>
+		<meta charset="utf-8">
 		<title>${1:TARGET}</title>
 		${2}
 	</head>
@@ -321,6 +331,9 @@ snippet input
 options word
 	<input type="${1:text/submit/button/radio/checkbox/hidden}">
 
+snippet button
+options word
+	<button>${1:TARGET}</button>
 
 # HTML5
 # ----------------------------------------------
