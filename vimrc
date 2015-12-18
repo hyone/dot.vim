@@ -52,7 +52,7 @@ NeoBundle 'Shougo/vimproc.vim', {
 \   },
 \ }
 NeoBundle 'LeafCage/yankround.vim'
-NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neomru.vim', { 'depends': [ 'Shougo/unite.vim' ] }
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neoyank.vim'
@@ -815,15 +815,15 @@ inoremap <C-a> <Home>
 inoremap <C-e> <End>
 
 " "   close popup window if it shows
-" inoremap <expr><CR> pumvisible() ? neocomplcache#cancel_popup()."\<CR>" : "\<CR>"
+" inoremap <expr><CR> pumvisible() ? neocomplete#cancel_popup()."\<CR>" : "\<CR>"
 "   aware when completion popup window
-inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 "   close when completation popup window shows
-inoremap <expr><C-j> pumvisible() ? neocomplcache#cancel_popup() : "\<C-j>"
-inoremap <expr><C-g> pumvisible() ? neocomplcache#cancel_popup() : "\<C-g>"
+inoremap <expr><C-j> pumvisible() ? neocomplete#cancel_popup() : "\<C-j>"
+inoremap <expr><C-g> pumvisible() ? neocomplete#cancel_popup() : "\<C-g>"
 "   if completation popup open, insert the current candidate and close popup
 "   otherwies, select from yank history
-inoremap <expr><C-y> pumvisible() ? neocomplcache#close_popup() : "\<Esc>:\<C-u>Unite history/yank\<CR>"
+inoremap <expr><C-y> pumvisible() ? neocomplete#close_popup() : "\<Esc>:\<C-u>Unite history/yank\<CR>"
 
 imap <C-o>  <Plug>(neosnippet_expand_or_jump)
 " expand snippet if possible
@@ -1100,33 +1100,27 @@ let g:yankring_replace_n_pkey = '<Esc>k'
 let g:yankring_replace_n_nkey = '<Esc>j'
 
 
-"   neocomplcache.vim  {{{2
+"   neocomplete.vim  {{{2
 " ==================================================
 
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-" Use neocomplcache.
-let g:neocomplcache_enable_at_startup = 1
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
 " Performance issue
-let g:neocomplcache_auto_completion_start_length = 2
-let g:neocomplcache_manual_completion_start_length = 3
-let g:neocomplcache_min_syntax_length = 4
-let g:neocomplcache_min_keyword_length = 4
+let g:neocomplete#auto_completion_start_length = 2
+let g:neocomplete#manual_completion_start_length = 3
+let g:neocomplete#min_keyword_length = 4
+let g:neocomplete#sources#syntax#min_keyword_length = 4
 " number of candidates
-let g:neocomplcache_max_list = 10
+let g:neocomplete#max_list = 10
 " Use ignore
-let g:neocomplcache_enable_ignore_case = 1
+let g:neocomplete#enable_ignore_case = 1
 " Smart case
-let g:neocomplcache_enable_smart_case = 1
-" Use camel case completion.
-let g:neocomplcache_enable_camel_case_completion = 0
-" Use underbar completion.
-let g:neocomplcache_enable_underbar_completion = 0
+let g:neocomplete#enable_smart_case = 1
 " Set minimum syntax keyword length.
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
 " Define dictionary.
-let g:neocomplcache_dictionary_filetype_lists = {
+let g:neocomplete#sources#dictionary#dictionaries = {
   \ 'default' : '',
   \ 'ruby' : $HOME.'/.vim/dict/ruby.dict' . ',' . $HOME .'/.vim/dict/ruby/rails.dict',
   \ 'scheme' : $HOME.'/.gosh_completions',
@@ -1134,17 +1128,14 @@ let g:neocomplcache_dictionary_filetype_lists = {
   \ }
 
 " Define keyword.
-if !exists('g:neocomplcache_keyword_patterns')
-    let g:neocomplcache_keyword_patterns = {}
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
 endif
 " not japanese word to completion candidates
-let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
-let g:neocomplcache_plugin_disable = {
-  \ 'syntax_complete' : 1, 
-  \ }
 " avoid to be taken completefunc by other plugins
-let g:neocomplcache_force_overwrite_completefunc = 1
+let g:neocomplete#force_overwrite_completefunc = 1
 
 "   neosnippet.vim  {{{2
 " ==================================================
