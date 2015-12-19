@@ -92,6 +92,17 @@ NeoBundle 'othree/html5.vim'
 NeoBundle 'othree/yajs.vim'
 " NeoBundle 'osyo-manga/vim-textobj-multiblock'
 " NeoBundle 'osyo-manga/vim-textobj-multitextobj'
+NeoBundle 'osyo-manga/shabadou.vim'
+NeoBundle 'osyo-manga/vim-watchdogs', {
+\   'depends': [
+\     'osyo-manga/shabadou.vim',
+\     'Shougo/vimproc.vim',
+\     'thinca/vim-quickrun',
+\     'KazuakiM/vim-qfsigns',
+\     'KazuakiM/vim-qfstatusline',
+\     'dannyob/quickfixstatus'
+\   ]
+\ }
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'rgarver/Kwbd.vim'
 NeoBundle 'rhysd/vim-textobj-ruby'
@@ -99,7 +110,6 @@ NeoBundle 'rking/ag.vim'
 NeoBundle 'rosstimson/bats.vim'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'scrooloose/syntastic'
 NeoBundle 'sgur/vim-textobj-parameter'
 NeoBundle 'sjl/gundo.vim'
 NeoBundle 'shime/vim-livedown'
@@ -995,7 +1005,8 @@ cnoremap <expr> <C-k> DeleteUntilEndOfLine()
 let g:lightline = {
 \   'colorscheme': 'jellybeans',
 \   'active': {
-\     'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
+\     'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ],
+\     'right': [ [ 'qfstatusline', 'lineinfo' ], [ 'percent' ], [ 'fileformat', 'fileencoding', 'filetype' ] ]
 \   },
 \   'separator': { 'left': "\u2b80", 'right': "\u2b82" },
 \   'subseparator': { 'left': "\u2b81", 'right': "\u2b83" },
@@ -1012,12 +1023,25 @@ let g:lightline = {
 \     'filetype': 'MyFiletype',
 \     'fileencoding': 'MyFileencoding',
 \     'mode': 'MyMode'
+\   },
+\   'component_expand': {
+\     'qfstatusline': 'MyQfstatusline'
+\   },
+\   'component_type': {
+\     'qfstatusline': 'error'
 \   }
 \ }
 
 let g:unite_force_overwrite_statusline = 0
 let g:vimfiler_force_overwrite_statusline = 0
 let g:vimshell_force_overwrite_statusline = 0
+let g:Qfstatusline#UpdateCmd = function('lightline#update')
+
+" cut off error message (only first error line number and errors count)
+function! MyQfstatusline()
+  let str = qfstatusline#Update()
+  return str[0 : stridx(str, ' ')]
+endfunction
 
 function! MyModified()
   return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
@@ -1489,15 +1513,37 @@ call smartinput#define_rule({
 \ })
 
 
-"   syntastic.vim   {{{2
+"  watchdogs.vim  {{{2
 " ==================================================
 
-let g:syntastic_mode_map = {
-\   'mode': 'passive',
-\   'active_filetypes': ['javascript', 'ruby']
+if !exists("g:quickrun_config")
+  let g:quickrun_config = {}
+endif
+
+let g:quickrun_config['watchdogs_checker/_'] = {
+\   'hook/qfsigns_update/enable_exit': 1,
+\   'hook/qfsigns_update/priority_exit': 3,
+\   'hook/qfstatusline_update/enable_exit': 1,
+\   'hook/qfstatusline_update/priority_exit': 4,
+\   'outputter/quickfix/open_cmd' : ''
 \ }
-let g:syntastic_ruby_checkers = ['rubocop']
-let g:syntastic_javascript_checkers = ['eslint']
+let g:quickrun_config['javascript/watchdogs_checker'] = {
+\   'type': 'watchdogs_checker/eslint'
+\ }
+let g:quickrun_config['javascript.jsx/watchdogs_checker'] =
+\     g:quickrun_config['javascript/watchdogs_checker']
+let g:quickrun_config['ruby/watchdogs_checker'] = {
+\   'type' : 'watchdogs_checker/rubocop'
+\ }
+
+call watchdogs#setup(g:quickrun_config)
+
+let g:watchdogs_check_BufWritePost_enables = {
+\   "javascript" : 1,
+\   "javascript.jsx" : 1,
+\   "ruby" : 1
+\ }
+let g:watchdogs_check_CursorHold_enables = g:watchdogs_check_BufWritePost_enables
 
 
 "   vim-jsx   {{{2

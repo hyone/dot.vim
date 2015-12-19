@@ -63,6 +63,7 @@ highlight LineNr                    guifg=#c0c0c0   guibg=#24272a
 highlight Number                    guifg=#7b8fde
 highlight PreProc                   guifg=#c0c0c0
 highlight Statement                 guifg=#ff8800   gui=NONE 
+highlight SpellBad                  guifg=#FF9999   guibg=#000000
 highlight String                    guifg=#ffcccc   guibg=#000000
 " highlight Title                     guifg=#c0c0c0
 highlight Title                     guifg=#ffffff

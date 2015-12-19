@@ -54,6 +54,7 @@ if has("gui_running")
   highlight LineNr                    guifg=#505050   guibg=#202020
   highlight Number                    guifg=#7b8fde
   highlight PreProc                   guifg=#c0c0c0
+  highlight SpellBad                  guifg=#DC381F   guibg=#1A1A1A gui=NONE
   highlight Statement                 guifg=#ff8800   gui=NONE 
   highlight String                    guifg=#bbaa99   guibg=#190209
   highlight Title                     guifg=#c0c0c0
