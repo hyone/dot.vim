@@ -54,7 +54,7 @@ NeoBundle 'Shougo/vimproc.vim', {
 NeoBundle 'LeafCage/yankround.vim'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neomru.vim', { 'depends': [ 'Shougo/unite.vim' ] }
-NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neoyank.vim'
 NeoBundle 'Shougo/unite.vim', { 'depends': [ 'Shougo/vimproc.vim' ] }
 NeoBundle 'Shougo/unite-help', { 'depends': [ 'Shougo/unite.vim' ] }
@@ -1433,7 +1433,7 @@ command! -nargs=+ -range AgInProject
 "   smartinput.vim   {{{2
 " ==================================================
 "
-"   smart space and enter with parenthesis
+"   smart space and newline with parenthesis
 
 " call smartinput#clear_rules()
 
