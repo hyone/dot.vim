@@ -1146,6 +1146,7 @@ let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 " Define dictionary.
 let g:neocomplete#sources#dictionary#dictionaries = {
   \ 'default' : '',
+  \ 'elixir' : $HOME.'/.vim/dict/elixir.dict',
   \ 'ruby' : $HOME.'/.vim/dict/ruby.dict' . ',' . $HOME .'/.vim/dict/ruby/rails.dict',
   \ 'scheme' : $HOME.'/.gosh_completions',
   \ 'vimshell' : $HOME.'/.vimshell_hist'
