@@ -58,8 +58,8 @@ NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neoyank.vim'
 NeoBundle 'Shougo/unite.vim', { 'depends': [ 'Shougo/vimproc.vim' ] }
 NeoBundle 'Shougo/unite-help', { 'depends': [ 'Shougo/unite.vim' ] }
-NeoBundle 'Shougo/vimfiler',  { 'depends': [ 'Shougo/unite.vim' ] }
-NeoBundle 'Shougo/vimshell'
+NeoBundle 'Shougo/vimfiler.vim',  { 'depends': [ 'Shougo/unite.vim' ] }
+NeoBundle 'Shougo/vimshell.vim'
 NeoBundle 'basyura/unite-rails', { 'depends': [ 'Shougo/unite.vim' ] }
 NeoBundle 'bkad/CamelCaseMotion'
 NeoBundleLazy 'cocopon/colorswatch.vim'
