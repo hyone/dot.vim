@@ -1,4 +1,21 @@
 
+"   vivi.vim  {{{1
+" ===============================================================================
+
+let g:vivi_enable_auto_syntax_checking = 1
+
+"   Warming up IEx helps you get quick response in viewing reference or omni completion.
+let g:vivi_enable_auto_warm_up_iex = 1
+
+" let g:vivi_enable_omni_completion = 1
+setlocal omnifunc=vivi#complete#omni
+
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+let g:neocomplete#sources#omni#input_patterns.elixir = '[^.[:digit:] *\t]\.'
+
+
 "   vim-smartinput  {{{1
 " ===============================================================================
 

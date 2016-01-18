@@ -82,6 +82,17 @@ NeoBundle 'kana/vim-textobj-indent'
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'lilydjwg/colorizer'
+NeoBundle 'liquidz/vivi.vim', {
+\   'depends': [
+\     'elixir-lang/vim-elixir',
+\     'Shougo/vimproc.vim',
+\     'Shougo/neocomplete.vim',
+\     'thinca/vim-quickrun',
+\     'thinca/vim-ref',
+\     'osyo-manga/shabadou.vim',
+\     'osyo-manga/vim-watchdogs'
+\   ]
+\ }
 NeoBundle 'mattn/sonictemplate-vim'
 NeoBundle 'mattn/vim-textobj-url'
 NeoBundle 'mattn/webapi-vim'
