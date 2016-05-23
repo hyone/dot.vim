@@ -904,7 +904,7 @@ inoremap <expr> =
 \   ? '= '
 \   : search('[^=] \%#', 'bcn')
 \     ? '= '
-\     : smartchr#one_of(' = ', '=', ' == ', ' === ')
+\     : smartchr#one_of(' = ', '=', ' == ',  '==', ' === ')
 
 "   treat: <-
 inoremap <expr> -
