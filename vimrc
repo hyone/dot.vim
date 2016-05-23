@@ -51,6 +51,7 @@ NeoBundle 'Shougo/vimproc.vim', {
 \     'unix' : 'make -f make_unix.mak',
 \   },
 \ }
+NeoBundle 'ElmCast/elm-vim'
 NeoBundle 'LeafCage/yankround.vim'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neomru.vim', { 'depends': [ 'Shougo/unite.vim' ] }
