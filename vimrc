@@ -774,7 +774,7 @@ nnoremap <silent> gp :<C-u>Unite file_rec/async:!<CR>
 nnoremap <silent> gP :<C-u>Unite file_rec/git<CR>
 " nnoremap <silent> gP :<C-u>Unite file_rec:!<CR>
 "   snippets
-nnoremap <silent> gs :<C-u>Unite snippet<CR>
+nnoremap <silent> gs :<C-u>Unite neosnippet<CR>
 "   tab
 nnoremap <silent> gt :<C-u>Unite tab:no-current<CR>
 "   yank history
