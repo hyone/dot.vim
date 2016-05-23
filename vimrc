@@ -1707,7 +1707,8 @@ endfunction
 "   Events (autocmd)   {{{1
 " ===============================================================================
 
-" disable autocd on quickrun execution
+"   disable autocd on quickrun execution
+" ----------------------------------------------------------------------
 function! AutoCD()
   if get(g:, "is_quickrun_started", 0)
     return
@@ -1720,6 +1721,8 @@ augroup AutoCD
   autocmd BufEnter * call AutoCD()
 augroup END
 
+"   Quickfix
+" ----------------------------------------------------------------------
 augroup Quickfix
   "   Remove ALL autocommands for the current group.
   autocmd!
@@ -1729,13 +1732,15 @@ augroup Quickfix
   autocmd QuickfixCmdPost l*          lopen
 augroup END
 
+"   reset <CR> to default behavior
+" ----------------------------------------------------------------------
 augroup CommandLine
   autocmd!
-  "   reset <CR> to default behavior
-  autocmd CmdwinEnter     *           nnoremap <buffer> <CR> <CR>
+  autocmd CmdwinEnter * nnoremap <buffer> <CR> <CR>
 augroup END
 
 "   use as ':setf js'
+" ----------------------------------------------------------------------
 augroup FileTypeAbbrev
   autocmd!
 
@@ -1746,6 +1751,7 @@ augroup END
 
 "   save and load buffer state (cursor, folding, ...)
 "   ( exclude vimfiler buffers to avoid that vimfiler does not work )
+" ----------------------------------------------------------------------
 augroup BufferState
   autocmd!
   autocmd BufWinLeave * if expand('%') != '' && &buftype !~ 'nofile' && expand('%') !~ 'vimfiler' | silent mkview   | endif
