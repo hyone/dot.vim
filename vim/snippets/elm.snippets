@@ -1,0 +1,30 @@
+snippet case
+abbr    case ... of ...
+	case ${1:#:expression} of
+	  ${2:#:matcher} -> ${3:TARGET}
+
+snippet exposing
+alias   exp
+abbr    exposing (...)
+	exposing (${1:TARGET})
+
+snippet import
+alias   imp
+abbr    import ...
+	import ${1:TARGET}
+
+snippet module
+alias   mod
+abbr    module ... where ...
+	module ${1:#:module_name} where
+	${2:TARGET}
+
+snippet .
+options word
+# if cursor is at start-of-line or before space, do not input prefix space
+	`search('\(^\|\s\+\)\%#', 'bcn') ? '' : ' '`-> ${1}
+
+snippet ,
+options word
+# if cursor is at start-of-line or before space, do not input prefix space
+	`search('\(^\|\s\+\)\%#', 'bcn') ? '' : ' '`|> ${1}

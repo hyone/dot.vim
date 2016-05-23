@@ -1,0 +1,39 @@
+# directive tag
+snippet d
+options word
+	<% ${1} %>
+
+snippet dh
+options word
+	<%= ${1} %>
+
+snippet else
+abbr    else
+options word
+	<% else %>${1}
+
+snippet end
+options word
+	<% end %>${1}
+
+snippet for
+abbr    for ... <- ... do ... end
+options word
+	<%= for ${1:#:variable} <- ${2:collection} do %>
+	  ${3:TARGET}
+	<% end %>
+
+snippet if
+abbr    if ... end
+options word
+	<%= if ${1:#:condition} do %>
+	  ${2:TARGET}
+	<% end %>
+
+snippet render
+options word
+	<%= render ${1:TARGET} %>
+
+snippet .
+options word
+	`' '`-> ${1}

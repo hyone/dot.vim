@@ -108,3 +108,7 @@ options word
 snippet image_tag
 options word
 	<%= image_tag ${1:TARGET} %>${2}
+
+snippet stylesheet_link_tag
+options word
+	<%= stylesheet_link_tag '${1:TARGET}', media: ${2:"all"} %>${3}

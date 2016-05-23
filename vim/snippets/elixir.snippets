@@ -1,12 +1,36 @@
+snippet case
+abbr    case ... do ... end
+	case ${1:#:expression} do
+          ${2:#:matcher} -> ${3:TARGET}
+        end
+
 snippet def
 abbr    def ... do ... end
-	def ${1:#:method_name} do
+	def ${1:#:func_name} do
           ${2:TARGET}
         end
 
 snippet def1
 abbr    def ..., do: ...
-	def ${1:#:method_name}, do: ${2:TARGET}
+	def ${1:#:func_name}, do: ${2:TARGET}
+
+snippet defp
+abbr    defp ... do ... end
+	defp ${1:#:func_name} do
+          ${2:TARGET}
+        end
+
+snippet defmacro
+abbr    defmacro ... do ... end
+	defmacro ${1:#:macro_name} do
+          ${2:TARGET}
+        end
+
+snippet defmacrop
+abbr    defmacrop ... do ... end
+	defmacrop ${1:#:macro_name} do
+          ${2:TARGET}
+        end
 
 snippet defmodule
 abbr    defmodule ... do ... end
@@ -14,14 +38,47 @@ abbr    defmodule ... do ... end
           ${2:TARGET}
         end
 
+snippet defprotocol
+abbr    defprotocol ... do ... end
+	defprotocol ${1:#:protocol_name} do
+	  ${2:TARGET}
+	end
+
+snippet defimpl
+abbr    defimpl ..., for: ... do ... end
+	defimpl ${1:#:protocol_name}, for: ${2:#:type_name} do
+	  ${3:TARGET}
+	end
+
 snippet do
 abbr    do ... end
-	do ${1:TARGET} end
+	do ${0:TARGET} end
 
 snippet fn
 options word
 abbr    fn ... -> ...
 	fn${1:#:signature} -> ${2:TARGET} end
+
+snippet import
+alias   imp
+abbr    import ...
+	import ${1:TARGET}
+
+snippet if
+abbr    if ... do ... end
+	if ${1:#:condition} do
+	  ${2:TARGET}
+	end
+
+snippet unless
+abbr    unless ... do ... end
+	unless ${1:#:condition} do
+	  ${2:TARGET}
+	end
+
+snippet use
+abbr    use ...
+	use ${2:TARGET}
 
 snippet .
 options word
@@ -34,3 +91,16 @@ options word
 
 snippet puts
 	IO.puts ${1:TARGET}
+
+
+# ExUnit
+
+snippet test
+abbr    test "..." do ... end
+	test "${1}" do
+	  ${2:TARGET}
+	end
+
+snippet assert
+abbr    assert ...
+	assert ${2:TARGET}
