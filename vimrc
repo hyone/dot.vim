@@ -1753,6 +1753,20 @@ augroup END
 "   do not save options of the buffer
 set viewoptions-=options
 
+"   strip trailing whitespaces on save a buffer
+" --------------------------------------------------
+function! s:StripTrailingWhitespaces()
+  let l = line(".")
+  let c = col(".")
+  %s/\s\+$//e
+  call cursor(l, c)
+endfunction
+
+augroup StripTrailingWhitespaces
+  autocmd!
+  autocmd FileType elm,elixir autocmd BufWritePre <buffer> :call s:StripTrailingWhitespaces()
+augroup END
+
 
 " ===============================================================================
 "   Functions   {{{1
