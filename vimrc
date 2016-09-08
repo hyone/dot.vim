@@ -896,6 +896,7 @@ inoremap <C-c>t  <Esc><C-u>:Unite sonictemplate<CR>
 "   smartchr.vim
 " --------------------------------------------------
 
+"   mapping '='
 "   treat: &= , += , -= , >= , <= , :=
 inoremap <expr> =
 \ search('\(&\<bar><bar>\<bar>+\<bar>-\<bar>/\<bar>>\<bar><\<bar>:\<bar>!=\) \%#', 'bcn')
@@ -904,43 +905,48 @@ inoremap <expr> =
 \   ? '= '
 \   : search('[^=] \%#', 'bcn')
 \     ? '= '
-\     : smartchr#one_of(' = ', '=', ' == ',  '==', ' === ')
+\     : smartchr#loop(' = ', '=', ' == ',  '==', ' === ')
 
+"   mapping '-'
 "   treat: <-
 inoremap <expr> -
 \ search('\(<\) \%#', 'bcn')
 \ ? '<bs>- '
-\ : smartchr#one_of('-',  ' - ', '--', ' -- ')
+\ : search('[^=] \%#', 'bcn')
+\   ? smartchr#loop('- ', '-')
+\   : smartchr#loop('-',  ' - ', '--', ' -- ')
 
 inoremap <expr> <Bar>
 \ search(' \%#', 'bcn')
-\ ? smartchr#one_of('<Bar> ', '<Bar><Bar> ', '<Bar>')
-\ : smartchr#one_of(' <Bar> ', ' <Bar><Bar> ', '<Bar>')
+\ ? smartchr#loop('<Bar> ', '<Bar><Bar> ', '<BS><Bar>')
+\ : smartchr#loop(' <Bar> ', ' <Bar><Bar> ', '<Bar>')
 
+"   mapping '>'
 "   treat: => , -> , |> , <>
 inoremap <expr> >
 \ search('\(=\<bar>-\<bar><bar>\<bar><\) \%#', 'bcn')
 \ ? '<bs>> '
-\ : smartchr#one_of('>',  ' > ', ' >> ')
+\ : smartchr#loop('>',  ' > ', ' >> ')
 
+"   mapping '~'
 "   treat: =~
 inoremap <expr> ~
 \ search('\(=\) \%#', 'bcn')
 \ ? '<bs>~ '
 \ : '~'
 
-" inoremap <expr> , smartchr#one_of(', ', ' => ', ',')
-inoremap <expr> + smartchr#one_of('+', ' + ', '++', ' ++ ')
-inoremap <expr> % smartchr#one_of('%',  ' % ')
-inoremap <expr> * smartchr#one_of('*',  ' * ', '**', ' ** ')
-inoremap <expr> & smartchr#one_of('&',  ' & ', ' && ')
-inoremap <expr> < smartchr#one_of('<',  ' < ', ' << ')
-inoremap <expr> \ smartchr#one_of('\',  '\\', ' \\ ')
-inoremap <expr> : smartchr#one_of(':',  '::', ' :: ')
+" inoremap <expr> , smartchr#loop(', ', ' => ', ',')
+inoremap <expr> + smartchr#loop('+', ' + ', '++', ' ++ ')
+inoremap <expr> % smartchr#loop('%',  ' % ')
+inoremap <expr> * smartchr#loop('*',  ' * ', '**', ' ** ')
+inoremap <expr> & smartchr#loop('&',  ' & ', ' && ')
+inoremap <expr> < smartchr#loop('<',  ' < ', ' << ')
+inoremap <expr> \ smartchr#loop('\',  '\\', ' \\ ')
+inoremap <expr> : smartchr#loop(':',  '::', ' :: ')
 
 augroup MySmartChr
   autocmd!
-  autocmd FileType perl,php inoremap <buffer> <expr> . smartchr#one_of('.', ' . ', '..', '...')
+  autocmd FileType perl,php inoremap <buffer> <expr> . smartchr#loop('.', ' . ', '..', '...')
 augroup END
 
 "   datetime
