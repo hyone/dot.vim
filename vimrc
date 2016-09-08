@@ -120,6 +120,7 @@ NeoBundle 'rgarver/Kwbd.vim'
 NeoBundle 'rhysd/vim-textobj-ruby'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'rosstimson/bats.vim'
+NeoBundle 'rust-lang/rust.vim'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'sgur/vim-textobj-parameter'
@@ -1167,6 +1168,7 @@ let g:neocomplete#sources#dictionary#dictionaries = {
   \ 'default' : '',
   \ 'elixir' : $HOME.'/.vim/dict/elixir.dict',
   \ 'ruby' : $HOME.'/.vim/dict/ruby.dict' . ',' . $HOME .'/.vim/dict/ruby/rails.dict',
+  \ 'rust' : $HOME.'/.vim/dict/rust.dict',
   \ 'scheme' : $HOME.'/.gosh_completions',
   \ 'vimshell' : $HOME.'/.vimshell_hist'
   \ }
