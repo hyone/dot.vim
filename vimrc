@@ -154,8 +154,7 @@ NeoBundle 'matchit.zip'
 NeoBundle 'pythoncomplete'
 NeoBundle 'sudo.vim'
 " NeoBundle 'taglist.vim'
-"   non github repos
-NeoBundle 'git://repo.or.cz/vcscommand'
+NeoBundle 'vcscommand.vim'
 NeoBundle 'wavded/vim-stylus'
 
 call neobundle#end()
@@ -663,28 +662,29 @@ nnoremap <silent> <Esc>o      <C-o>zz
 
 "   Prefix: ,
 " --------------------------------------------------
+
+call camelcasemotion#CreateMotionMappings(',')
 "   ,w : camelcasemotion.vim
 "   ,b : camelcasemotion.vim
 "   ,e : camelcasemotion.vim
 
-"   VCSCommand
-"   <Leader>ca VCSAdd
-"   <Leader>cn VCSAnnotate
-"   <Leader>cN VCSAnnotate!
-"   <Leader>cc VCSCommit
-"   <Leader>cD VCSDelete
-"   <Leader>cd VCSDiff
-"   <Leader>cg VCSGotoOriginal
-"   <Leader>cG VCSGotoOriginal!
-"   <Leader>ci VCSInfo
-"   <Leader>cl VCSLog
-"   <Leader>cL VCSLock
-"   <Leader>cr VCSReview
-"   <Leader>cs VCSStatus
-"   <Leader>cu VCSUpdate
-"   <Leader>cU VCSUnlock
-"   <Leader>cv VCSVimDiff
 let g:VCSCommandMapPrefix = ',c'
+"   ,ca VCSAdd
+"   ,cn VCSAnnotate
+"   ,cN VCSAnnotate!
+"   ,cc VCSCommit
+"   ,cD VCSDelete
+"   ,cd VCSDiff
+"   ,cg VCSGotoOriginal
+"   ,cG VCSGotoOriginal!
+"   ,ci VCSInfo
+"   ,cl VCSLog
+"   ,cL VCSLock
+"   ,cr VCSReview
+"   ,cs VCSStatus
+"   ,cu VCSUpdate
+"   ,cU VCSUnlock
+"   ,cv VCSVimDiff
 
 nmap     <silent> ,,    <Plug>NERDCommenterToggle
 vmap     <silent> ,,    <Plug>NERDCommenterToggle
