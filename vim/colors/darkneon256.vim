@@ -36,8 +36,8 @@ highlight StatusLine                guifg=#ff8800 guibg=#000000 gui=NONE
 highlight StatusLineNC              guifg=#000000 guibg=#999999
 highlight VertSplit                 guifg=#444444 guibg=#444444
 highlight Folded                    guifg=#111111 guibg=#8090a0
-highlight IncSearch                 guifg=white   guibg=#5A647E gui=underline
-highlight Search                    guifg=white   guibg=#5A647E gui=underline
+highlight IncSearch                 guifg=#ffffff guibg=#5A647E gui=underline
+highlight Search                    guifg=#ffffff guibg=#5A647E gui=underline
 
 "   TabLine
 highlight TabLine                   guifg=#ffffff guibg=#000000 gui=NONE
@@ -54,7 +54,7 @@ highlight Comment                   guifg=#333333 guibg=#8b7e66 | "gui=italic
 highlight Constant                  guifg=#6D9CBE
 highlight Define                    guifg=#7b8fde
 " highlight Define                    guifg=#ff8800
-highlight Error                     guifg=#c0c0c0   guibg=#99000
+highlight Error                     guifg=#c0c0c0   guibg=#990000
 highlight Function                  guifg=#6ea3ff   gui=NONE
 highlight Identifier                guifg=#81d681   gui=NONE
 highlight Include                   guifg=#ee7621   gui=underline
