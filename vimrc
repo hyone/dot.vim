@@ -151,6 +151,7 @@ NeoBundle 'tyru/operator-camelize.vim'
 NeoBundle 'tyru/vim-altercmd'
 NeoBundle 'vim-scripts/JSON.vim'
 NeoBundle 'vim-scripts/AnsiEsc.vim'
+NeoBundle 'wavded/vim-stylus'
 "   vim-scripts repos
 NeoBundle 'Align'
 NeoBundle 'matchit.zip'
@@ -158,7 +159,6 @@ NeoBundle 'pythoncomplete'
 NeoBundle 'sudo.vim'
 " NeoBundle 'taglist.vim'
 NeoBundle 'vcscommand.vim'
-NeoBundle 'wavded/vim-stylus'
 
 call neobundle#end()
 
@@ -1550,7 +1550,7 @@ let g:quickrun_config['watchdogs_checker/_'] = {
 \   'hook/qfsigns_update/priority_exit': 3,
 \   'hook/qfstatusline_update/enable_exit': 1,
 \   'hook/qfstatusline_update/priority_exit': 4,
-\   'outputter/quickfix/open_cmd' : ''
+\   'outputter/quickfix/open_cmd': '',
 \ }
 let g:quickrun_config['javascript/watchdogs_checker'] = {
 \   'type': 'watchdogs_checker/eslint'
