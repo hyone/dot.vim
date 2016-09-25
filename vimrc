@@ -118,6 +118,9 @@ NeoBundle 'osyo-manga/vim-watchdogs', {
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'rgarver/Kwbd.vim'
 NeoBundle 'rhysd/vim-textobj-ruby'
+if has('mac')
+  NeoBundle 'rizzatti/dash.vim'
+endif
 NeoBundle 'rking/ag.vim'
 NeoBundle 'rosstimson/bats.vim'
 NeoBundle 'rust-lang/rust.vim'
