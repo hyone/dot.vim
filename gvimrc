@@ -91,16 +91,5 @@ cnoremap <M-h> <S-Left>
 cnoremap <M-l> <S-Right>
 
 
-" ===============================================================================
-"   Source external files   {{{1
-" ===============================================================================
-
-if filereadable (expand("~/.vimrc.local"))
-  source ~/.vimrc.local
-elseif filereadable (expand($VIM . "/.vimrc.local"))
-  source $VIM/.vimrc.local
-endif
-
-
 " vim: expandtab softtabstop=2 shiftwidth=2
 " vim: set foldmethod=marker
