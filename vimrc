@@ -1232,6 +1232,10 @@ endif
 " Grep
 let g:unite_enable_ignore_case = 1
 let g:unite_enable_smart_case = 1
+
+" default matcher
+call unite#filters#matcher_default#use(['matcher_regexp'])
+
 " ignore files
 let s:file_rec_ignore_globs = [
   \   '*.png',
