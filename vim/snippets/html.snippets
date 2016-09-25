@@ -110,79 +110,49 @@ snippet html
 	<html>
 	${1}
 	</html>
+
 snippet html5
 	<html lang="${1}">
 	${2}
 	</html>
+
 snippet xhtml
 	<html xmlns="http://www.w3.org/1999/xhtml">
 	${1}
 	</html>
+
 snippet body
 	<body>
 		${1}
 	</body>
+
 snippet head
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8">
 		<title>${1:TARGET}</title>
 		${2}
 	</head>
+
 snippet head5
 	<head>
 		<meta charset="utf-8">
 		<title>${1:TARGET}</title>
 		${2}
 	</head>
+
 snippet title
 	<title>${1:$TARGET}</title>${2}
-snippet style
-	<style type="text/css" media="${1:screen}">
-		${2}
-	</style>${3}
+
 snippet base
 	<base href="${1}" target="${2}"`Close()`>
-snippet r
-	<br`Close()[1:]`>
-# Embed QT Movie
-snippet movie
-	<object width="$2" height="$3" classid="clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B"
-	 codebase="http://www.apple.com/qtactivex/qtplugin.cab">
-		<param name="src" value="$1"`Close()`>
-		<param name="controller" value="$4"`Close()`>
-		<param name="autoplay" value="$5"`Close()`>
-		<embed src="${1:movie.mov}"
-			width="${2:320}" height="${3:240}"
-			controller="${4:true}" autoplay="${5:true}"
-			scale="tofit" cache="true"
-			pluginspage="http://www.apple.com/quicktime/download/"
-		`Close()[1:]`>
-	</object>${6}
-snippet fieldset
-	<fieldset id="$1">
-		<legend>${1:name}</legend>
 
-		${3}
-	</fieldset>
-snippet form
-	<form action="${1:`Filename('$1_submit')`}" method="${2:get}" accept-charset="utf-8">
-		${3}
-
-
-	<p><input type="submit" value="Continue &rarr;"`Close()`></p>
-	</form>
-snippet mailto
-	<a href="mailto:${1:joe@example.com}?subject=${2:feedback}">${3:email me}</a>
-snippet meta
-	<meta name="${1:name}" content="${2:content}"`Close()`>${3}
-snippet textarea
-	<textarea name="${1:Name}" rows="${2:8}" cols="${3:40}">${4}</textarea>${5}
-
-
-# -- myself
+snippet style
+	<style type="text/css" media="${1:screen}">
+		${0}
+	</style>
 
 snippet link
-	<link rel="stylesheet" href="${1}">
+	<link rel="stylesheet" href="${0}">
 
 snippet link-bootstrap
 	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
@@ -190,12 +160,12 @@ snippet link-bootstrap
 snippet script
 alias scr
 	<script type="text/javascript">
-		${1}
+		${0}
 	</script>
 
 snippet script-src
 alias scrc
-	<script src="${1}.js" type="text/javascript"></script>${2}
+	<script src="${1}.js" type="text/javascript"></script>${0}
 
 snippet script-angularjs
 	<script src="http://code.angularjs.org/1.2.25/angular.min.js" type="text/javascript"></script>
@@ -203,7 +173,6 @@ snippet script-bootstrap
 	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" type="text/javascript"></script>
 snippet script-jquery
 	<script src="http://code.jquery.com/jquery-2.1.0.min.js" type="text/javascript" charset="utf-8"></script>
-
 
 snippet id
 alias   id
@@ -220,7 +189,7 @@ options word
 
 snippet div
 options word
-	<div>${1:TARGET}</div>
+	<div>${0:TARGET}</div>
 
 snippet div-class
 alias   divc
@@ -229,26 +198,26 @@ options word
 
 snippet h1
 options word
-	<h1>${1:TARGET}</h1>
+	<h1>${0:TARGET}</h1>
 snippet h2
 options word
-	<h2>${1:TARGET}</h2>
+	<h2>${0:TARGET}</h2>
 snippet h3
 options word
-	<h3>${1:TARGET}</h3>
+	<h3>${0:TARGET}</h3>
 snippet h4
 options word
-	<h4>${1:TARGET}</h4>
+	<h4>${0:TARGET}</h4>
 snippet h5
 options word
-	<h5>${1:TARGET}</h5>
+	<h5>${0:TARGET}</h5>
 snippet h6
 options word
-	<h6>${1:TARGET}</h6>
+	<h6>${0:TARGET}</h6>
 
 snippet span
 options word
-	<span>${1:TARGET}</span>
+	<span>${0:TARGET}</span>
 
 snippet span-class
 alias   spanc
@@ -257,26 +226,26 @@ options word
 
 snippet dl
 options word
-	<dl>${1:TARGET}</dl>
+	<dl>${0:TARGET}</dl>
 snippet dd
 options word
-	<dd>${1:TARGET}</dd>
+	<dd>${0:TARGET}</dd>
 snippet dt
 options word
-	<dt>${1:TARGET}</dt>
+	<dt>${0:TARGET}</dt>
 snippet ol
 options word
-	<ol>${1:TARGET}</ol>
+	<ol>${0:TARGET}</ol>
 snippet ul
 options word
-	<ul>${1:TARGET}</ul>
+	<ul>${0:TARGET}</ul>
 snippet li
 options word
-	<li>${1:TARGET}</li>
+	<li>${0:TARGET}</li>
 
 snippet p
 options word
-	<p>${1:TARGET}</p>
+	<p>${0:TARGET}</p>
 
 snippet a
 options word
@@ -288,13 +257,13 @@ options word
 
 snippet strong
 options word
-	<strong>${1:TARGET}</strong>
+	<strong>${0:TARGET}</strong>
 snippet b
 options word
-	<b>${1:TARGET}</b>
+	<b>${0:TARGET}</b>
 snippet i 
 options word
-	<i>${1:TARGET}</i>
+	<i>${0:TARGET}</i>
 
 #   table
 snippet table
@@ -304,44 +273,49 @@ options word
 	</table>
 snippet th
 options word
-	<th>${1:TARGET}</th>
+	<th>${0:TARGET}</th>
 snippet tr
 options word
-	<tr>${1:TARGET}</tr>
+	<tr>${0:TARGET}</tr>
 snippet td
 options word
-	<td>${1:TARGET}</td>
+	<td>${0:TARGET}</td>
 
 #   form
+snippet form
+	<form action="${1}" method="${2:POST|GET}">
+		${0}
+        </form>
+
 snippet label
 options word
-	<label>${1:TARGET}</label>
+	<label>${0:TARGET}</label>
 snippet labelfor
 options word
 	<label for="${2:$1}">${1:TARGET}</label>
 
 snippet select
 options word
-	<select>${1:TARGET}</select>
+	<select>${0:TARGET}</select>
 snippet option
 options word
 	<option value="${1:TARGET}">${2:$1}</option>
 
 snippet input
 options word
-	<input type="${1:text/submit/button/radio/checkbox/hidden}">
+	<input type="${0:text/submit/button/radio/checkbox/hidden}">
 
 snippet button
 options word
-	<button>${1:TARGET}</button>
+	<button>${0:TARGET}</button>
 
 # HTML5
 # ----------------------------------------------
 
 snippet aside
 options word
-	<aside>${1:TARGET}</aside>
+	<aside>${0:TARGET}</aside>
 
 snippet section
 options word
-	<section>${1:TARGET}</section>
+	<section>${0:TARGET}</section>

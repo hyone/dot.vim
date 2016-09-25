@@ -14,14 +14,18 @@ snippet do
 
 snippet func
 options word
-	function ${1}(${2}) {${3}}
+	function ${1}(${2}) {${0}}
+
+snippet func*
+options word
+	function* ${1}(${2}) {${0}}
 
 snippet if
-	if (${1:true}) {${2}}
+	if (${1:true}) {${0}}
 
 snippet ife
 	if (${1:true}) {${2}}
-	else{${3}}
+	else{${0}}
 
 snippet proto
 	${1:class_name}.prototype.${2:method_name} =
@@ -61,11 +65,11 @@ snippet gett
 # console
 
 snippet cd
-	console.debug(${1:TARGET});
+	console.debug(${0:TARGET});
 snippet ce
-	console.error(${1:TARGET});
+	console.error(${0:TARGET});
 snippet cl
-	console.log(${1:TARGET});
+	console.log(${0:TARGET});
 
 # ES6
 
@@ -98,7 +102,7 @@ abbr    (...) => {}
 
 snippet imp
 abbr    import ... from ...;
-	import ${1:name} from ${2:module};
+	import ${1:name} from ${2:module};${0}
 
 snippet st
 	static 

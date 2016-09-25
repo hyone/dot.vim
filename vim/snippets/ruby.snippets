@@ -64,11 +64,11 @@ options word
 
 snippet do
 abbr    do ... end
-	do ${1:TARGET} end
+	do ${0:TARGET} end
 
 snippet dovar
 abbr    do |var| ... end
-	do |${1:#:var}| ${2:TARGET} end
+	do |${1:#:var}| ${0:TARGET} end
 
 snippet bar
 abbr |...| ...
@@ -96,10 +96,10 @@ snippet context
 
 snippet it
 abbr    it { ... }
-	it { ${1:TARGET} }
+	it { ${0:TARGET} }
 
 snippet itdo
-abbr    it do ... end
+abbr    it ... do ... end
 	it ${1} do ${2:TARGET} end
 
 snippet let
@@ -118,18 +118,26 @@ abbr    shared_examples do ... end
 
 snippet subject
 abbr    subject { ... }
-	subject { ${1:TARGET} }
+	subject { ${0:TARGET} }
 
 snippet before
 abbr    before do ... end
-	before do ${1:TARGET} end
+	before do ${0:TARGET} end
 snippet before1
 abbr    before { ... }
-	before { ${1:TARGET} }
+	before { ${0:TARGET} }
 
 snippet specify
 abbr    specify { ... }
-	specify { ${1:TARGET} }
+	specify { ${0:TARGET} }
+
+snippet feature
+abbr    feature ... do ... end
+	feature ${1} do ${0:TARGET} end
+
+snippet scenario
+abbr    scenario ... do ... end
+	scenario ${1} do ${0:TARGET} end
 
 
 # rails
