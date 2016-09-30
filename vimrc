@@ -1564,13 +1564,16 @@ let g:quickrun_config['javascript.jsx/watchdogs_checker'] =
 let g:quickrun_config['ruby/watchdogs_checker'] = {
 \   'type' : 'watchdogs_checker/rubocop'
 \ }
+let g:quickrun_config['ruby.rspec/watchdogs_checker'] =
+\     g:quickrun_config['ruby/watchdogs_checker']
 
 call watchdogs#setup(g:quickrun_config)
 
 let g:watchdogs_check_BufWritePost_enables = {
 \   "javascript" : 1,
 \   "javascript.jsx" : 1,
-\   "ruby" : 1
+\   "ruby" : 1,
+\   "ruby.rspec" : 1,
 \ }
 let g:watchdogs_check_CursorHold_enables = g:watchdogs_check_BufWritePost_enables
 
