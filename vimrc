@@ -1556,11 +1556,13 @@ let g:quickrun_config['watchdogs_checker/_'] = {
 \   'hook/qfstatusline_update/priority_exit': 4,
 \   'outputter/quickfix/open_cmd': '',
 \ }
+
 let g:quickrun_config['javascript/watchdogs_checker'] = {
 \   'type': 'watchdogs_checker/eslint'
 \ }
 let g:quickrun_config['javascript.jsx/watchdogs_checker'] =
 \     g:quickrun_config['javascript/watchdogs_checker']
+
 let g:quickrun_config['ruby/watchdogs_checker'] = {
 \   'type' : 'watchdogs_checker/rubocop'
 \ }
@@ -1945,7 +1947,7 @@ endfunction
 " ===============================================================================
 
 "   vimrc.local
-if filereadable (expand("~/.vimrc.local"))
+if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 elseif filereadable (expand($VIM . "/.vimrc.local"))
   source $VIM/.vimrc.local
