@@ -39,11 +39,6 @@ highlight Folded                    guifg=#111111 guibg=#8090a0
 highlight IncSearch                 guifg=#ffffff guibg=#5A647E gui=underline
 highlight Search                    guifg=#ffffff guibg=#5A647E gui=underline
 
-"   TabLine
-highlight TabLine                   guifg=#ffffff guibg=#000000 gui=NONE
-highlight TabLineSel                guifg=#ff8800 guibg=#000000
-highlight TabLineFill               guifg=#000000 guibg=#000000
-
 "   color for popup menu
 highlight Pmenu                     guibg=#24272a guifg=#c2c2c2
 highlight PmenuSel                  guibg=#ee7600 guifg=#ffffff
