@@ -1563,6 +1563,14 @@ let g:quickrun_config['javascript/watchdogs_checker'] = {
 let g:quickrun_config['javascript.jsx/watchdogs_checker'] =
 \     g:quickrun_config['javascript/watchdogs_checker']
 
+" NOTE: default coffeelint config in current watchdogs version uses deprecated option '--csv'
+"       so, we overwrite coffeelint config
+let g:quickrun_config['coffee/watchdogs_checker'] = {
+\   'command' : "coffeelint",
+\   'exec'    : "%c --reporter csv %o %s:p",
+\   'errorformat' : '%f\,%l\,%trror\,%m',
+\ }
+
 let g:quickrun_config['ruby/watchdogs_checker'] = {
 \   'type' : 'watchdogs_checker/rubocop'
 \ }
@@ -1572,6 +1580,7 @@ let g:quickrun_config['ruby.rspec/watchdogs_checker'] =
 call watchdogs#setup(g:quickrun_config)
 
 let g:watchdogs_check_BufWritePost_enables = {
+\   "coffee" : 1,
 \   "javascript" : 1,
 \   "javascript.jsx" : 1,
 \   "ruby" : 1,
