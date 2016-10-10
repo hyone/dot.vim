@@ -31,140 +31,32 @@ if has('vim_starting')
   set nocompatible
 endif
 
-"   Neobundle   {{{2
+"   dein.vim   {{{2
 " ==================================================
 
-if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+" automatically install dein if needed
+let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache/vim') : $XDG_CACHE_HOME
+let s:dein_dir = s:cache_home . '/dein'
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+if !isdirectory(s:dein_repo_dir)
+  call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
+endif
+let &runtimepath = s:dein_repo_dir .",". &runtimepath
+
+" load plugin and create caches
+if dein#load_state(s:dein_dir)
+  let s:toml_file = basedir . 'dein.toml'
+  let s:lazy_toml_file = basedir . 'dein_lazy.toml'
+  call dein#begin(s:dein_dir, [expand('<sfile>'), s:toml_file, s:lazy_toml_file])
+  call dein#load_toml(s:toml_file)
+  call dein#load_toml(s:lazy_toml_file, {'lazy' : 1})
+  call dein#end()
+  call dein#save_state()
 endif
 
-call neobundle#begin(expand('~/.vim/bundle/'))
-
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-"   github
-NeoBundle 'Shougo/vimproc.vim', {
-\   'build' : {
-\     'windows' : 'make -f make_mingw32.mak',
-\     'cygwin' : 'make -f make_cygwin.mak',
-\     'mac' : 'make -f make_mac.mak',
-\     'unix' : 'make -f make_unix.mak',
-\   },
-\ }
-NeoBundle 'ElmCast/elm-vim'
-NeoBundle 'LeafCage/yankround.vim'
-NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'Shougo/neomru.vim', { 'depends': [ 'Shougo/unite.vim' ] }
-NeoBundle 'Shougo/neosnippet.vim'
-NeoBundle 'Shougo/neoyank.vim'
-NeoBundle 'Shougo/unite.vim', { 'depends': [ 'Shougo/vimproc.vim' ] }
-NeoBundle 'Shougo/unite-help', { 'depends': [ 'Shougo/unite.vim' ] }
-NeoBundle 'Shougo/vimfiler.vim',  { 'depends': [ 'Shougo/unite.vim' ] }
-NeoBundle 'Shougo/vimshell.vim'
-NeoBundle 'basyura/unite-rails', { 'depends': [ 'Shougo/unite.vim' ] }
-NeoBundle 'bkad/CamelCaseMotion'
-NeoBundleLazy 'cocopon/colorswatch.vim'
-NeoBundle 'c9s/perlomni.vim'
-NeoBundle 'deris/vim-textobj-enclosedsyntax'
-NeoBundle 'digitaltoad/vim-jade'
-NeoBundle "ekalinin/Dockerfile.vim"
-NeoBundle "elixir-lang/vim-elixir"
-NeoBundle 'gkz/vim-ls'
-NeoBundle 'groenewege/vim-less'
-NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'kana/vim-operator-user'
-NeoBundle 'kana/vim-operator-replace'
-NeoBundle 'kana/vim-smartchr'
-NeoBundle 'kana/vim-smartinput'
-NeoBundle 'kana/vim-smartword'
-NeoBundle 'kana/vim-textobj-function'
-NeoBundle 'kana/vim-textobj-indent'
-" NeoBundle 'kana/vim-textobj-lastpat'
-NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'lilydjwg/colorizer'
-NeoBundle 'liquidz/vivi.vim', {
-\   'depends': [
-\     'elixir-lang/vim-elixir',
-\     'Shougo/vimproc.vim',
-\     'Shougo/neocomplete.vim',
-\     'thinca/vim-quickrun',
-\     'thinca/vim-ref',
-\     'osyo-manga/shabadou.vim',
-\     'osyo-manga/vim-watchdogs'
-\   ]
-\ }
-NeoBundle 'mattn/sonictemplate-vim'
-NeoBundle 'mattn/vim-textobj-url'
-NeoBundle 'mattn/webapi-vim'
-NeoBundle 'motemen/git-vim'
-NeoBundle 'msanders/cocoa.vim'
-NeoBundle 'mxw/vim-jsx'
-NeoBundle 'othree/html5.vim'
-NeoBundle 'othree/yajs.vim'
-" NeoBundle 'osyo-manga/vim-textobj-multiblock'
-" NeoBundle 'osyo-manga/vim-textobj-multitextobj'
-NeoBundle 'osyo-manga/shabadou.vim'
-NeoBundle 'osyo-manga/vim-watchdogs', {
-\   'depends': [
-\     'osyo-manga/shabadou.vim',
-\     'Shougo/vimproc.vim',
-\     'thinca/vim-quickrun',
-\     'KazuakiM/vim-qfsigns',
-\     'KazuakiM/vim-qfstatusline',
-\     'dannyob/quickfixstatus'
-\   ]
-\ }
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'rgarver/Kwbd.vim'
-NeoBundle 'rhysd/vim-textobj-ruby'
-if has('mac')
-  NeoBundle 'rizzatti/dash.vim'
-endif
-NeoBundle 'rking/ag.vim'
-NeoBundle 'rosstimson/bats.vim'
-NeoBundle 'rust-lang/rust.vim'
-NeoBundle 'scrooloose/nerdcommenter'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'sgur/vim-textobj-parameter'
-NeoBundle 'sjl/gundo.vim'
-NeoBundle 'shime/vim-livedown'
-NeoBundle 'slim-template/vim-slim'
-NeoBundle 't9md/vim-textobj-function-ruby'
-NeoBundle 'thinca/vim-ft-svn_diff'
-" NeoBundle 'thinca/vim-guicolorscheme'
-NeoBundle 'thinca/vim-poslist'
-NeoBundle 'thinca/vim-prettyprint'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'thinca/vim-ref'
-NeoBundle 'thinca/vim-tabrecent'
-NeoBundle 'thinca/vim-textobj-comment'
-NeoBundle 'thinca/vim-textobj-function-javascript'
-NeoBundle 'thinca/vim-textobj-function-perl'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'tpope/vim-rails'
-NeoBundle 'tpope/vim-repeat'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tyru/capture.vim'
-NeoBundle 'tyru/open-browser.vim'
-NeoBundle 'tyru/operator-camelize.vim'
-NeoBundle 'tyru/vim-altercmd'
-NeoBundle 'vim-scripts/JSON.vim'
-NeoBundle 'vim-scripts/AnsiEsc.vim'
-NeoBundle 'wavded/vim-stylus'
-"   vim-scripts repos
-NeoBundle 'Align'
-NeoBundle 'matchit.zip'
-NeoBundle 'pythoncomplete'
-NeoBundle 'sudo.vim'
-" NeoBundle 'taglist.vim'
-NeoBundle 'vcscommand.vim'
-
-call neobundle#end()
-
-if has('vim_starting')
-  filetype plugin indent on
-  NeoBundleCheck
+" automatically install plugins if needed
+if has('vim_starting') && dein#check_install()
+  call dein#install()
 endif
 
 

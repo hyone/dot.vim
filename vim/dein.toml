@@ -1,0 +1,385 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'LeafCage/yankround.vim'
+
+[[plugins]]
+repo = 'Shougo/neocomplete.vim'
+if = "has('lua')"
+
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+
+[[plugins]]
+repo = 'Shougo/neosnippet.vim'
+
+[[plugins]]
+repo = 'Shougo/neoyank.vim'
+
+[[plugins]]
+repo = 'Shougo/unite-help'
+
+[[plugins]]
+repo = 'Shougo/unite.vim'
+depends = 'neomru.vim'
+
+[[plugins]]
+repo = 'Shougo/vimfiler.vim'
+depends = 'unite.vim'
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+
+[[plugins]]
+repo = 'Shougo/vimshell.vim'
+
+[[plugins]]
+repo = 'bkad/CamelCaseMotion'
+
+[[plugins]]
+repo = 'deris/vim-textobj-enclosedsyntax'
+depends = 'vim-textobj-user'
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+
+[[plugins]]
+repo = 'kana/vim-operator-replace'
+depends = 'vim-operator-user'
+
+[[plugins]]
+repo = 'kana/vim-operator-user'
+
+[[plugins]]
+repo = 'kana/vim-smartchr'
+
+[[plugins]]
+repo = 'kana/vim-smartinput'
+
+[[plugins]]
+repo = 'kana/vim-smartword'
+
+[[plugins]]
+repo = 'kana/vim-textobj-function'
+depends = 'vim-textobj-user'
+
+[[plugins]]
+repo = 'kana/vim-textobj-indent'
+depends = 'vim-textobj-user'
+
+[[plugins]]
+repo = 'kana/vim-textobj-lastpat'
+depends = 'vim-textobj-user'
+
+[[plugins]]
+repo = 'kana/vim-textobj-user'
+
+[[plugins]]
+repo = 'lilydjwg/colorizer'
+
+# [[plugins]]
+# repo = 'mattn/sonictemplate-vim'
+
+[[plugins]]
+repo = 'mattn/vim-textobj-url'
+depends = 'vim-textobj-user'
+
+[[plugins]]
+repo = 'mattn/webapi-vim'
+
+[[plugins]]
+repo = 'motemen/git-vim'
+
+[[plugins]]
+repo = 'osyo-manga/shabadou.vim'
+
+# [[plugins]]
+# repo = 'osyo-manga/vim-textobj-multiblock'
+# depends = 'vim-textobj-user'
+
+# [[plugins]]
+# repo = 'osyo-manga/vim-textobj-multitextobj'
+# depends = 'vim-textobj-user'
+
+[[plugins]]
+repo = 'osyo-manga/vim-watchdogs'
+depends = [
+  'osyo-manga/shabadou.vim',
+  'Shougo/vimproc.vim',
+  'thinca/vim-quickrun',
+  'KazuakiM/vim-qfsigns',
+  'KazuakiM/vim-qfstatusline',
+  'dannyob/quickfixstatus'
+]
+
+[[plugins]]
+repo = 'powerman/vim-plugin-AnsiEsc'
+
+[[plugins]]
+repo = 'rgarver/Kwbd.vim'
+
+[[plugins]]
+repo = 'rking/ag.vim'
+
+[[plugins]]
+repo = 'rosstimson/bats.vim'
+
+[[plugins]]
+repo = 'scrooloose/nerdcommenter'
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+
+[[plugins]]
+repo = 'sgur/vim-textobj-parameter'
+depends = 'vim-textobj-user'
+
+[[plugins]]
+repo = 'sjl/gundo.vim'
+
+# [[plugins]]
+# repo = 'thinca/vim-guicolorscheme'
+
+[[plugins]]
+repo = 'thinca/vim-poslist'
+
+[[plugins]]
+repo = 'thinca/vim-prettyprint'
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+
+[[plugins]]
+repo = 'thinca/vim-ref'
+
+[[plugins]]
+repo = 'thinca/vim-tabrecent'
+
+[[plugins]]
+repo = 'thinca/vim-textobj-comment'
+depends = 'vim-textobj-user'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'tpope/vim-repeat'
+
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo = 'tyru/capture.vim'
+
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+
+[[plugins]]
+repo = 'tyru/vim-altercmd'
+
+[[plugins]]
+repo = 'tyru/operator-camelize.vim'
+depends = 'vim-operator-user'
+
+# vim.org repository
+# ----------------------------------------------------------------------
+
+[[plugins]]
+repo = 'Align'
+
+[[plugins]]
+repo = 'matchit.zip'
+
+[[plugins]]
+repo = 'sudo.vim'
+
+# [[plugins]]
+# repo = 'taglist.vim'
+
+[[plugins]]
+repo = 'vcscommand.vim'
+
+
+# ===============================================================================
+#   plugins for specific filetype
+# ===============================================================================
+
+# coffee
+# ----------------------------------------------------------------------
+
+[[plugins]]
+repo = 'kchmck/vim-coffee-script'
+on_ft = 'coffee'
+
+# Dockerfile
+# ----------------------------------------------------------------------
+
+[[plugins]]
+repo = 'ekalinin/Dockerfile.vim'
+on_ft = 'Dockerfile'
+
+# elixir
+# ----------------------------------------------------------------------
+
+[[plugins]]
+repo = 'elixir-lang/vim-elixir'
+on_ft = 'elixir'
+
+[[plugins]]
+repo = 'liquidz/vivi.vim'
+depends = [
+  'elixir-lang/vim-elixir',
+  'Shougo/vimproc.vim',
+  'Shougo/neocomplete.vim',
+  'thinca/vim-quickrun',
+  'thinca/vim-ref',
+  'osyo-manga/shabadou.vim',
+  'osyo-manga/vim-watchdogs'
+]
+on_ft = 'elixir'
+
+# [[plugins]]
+# repo = 'racer-rust/vim-racer'
+# on_ft = 'elixir'
+
+# elm
+# ----------------------------------------------------------------------
+
+[[plugins]]
+repo = 'ElmCast/elm-vim'
+on_ft = 'elm'
+
+# html
+# ----------------------------------------------------------------------
+
+[[plugins]]
+repo = 'othree/html5.vim'
+on_ft = 'html'
+
+# jade
+# ----------------------------------------------------------------------
+
+[[plugins]]
+repo = 'digitaltoad/vim-jade'
+on_ft = 'jade'
+
+# javascript
+# ----------------------------------------------------------------------
+
+[[plugins]]
+repo = 'mxw/vim-jsx'
+on_ft = 'javascript'
+
+[[plugins]]
+repo = 'othree/yajs.vim'
+on_ft = 'javascript'
+
+[[plugins]]
+repo = 'pangloss/vim-javascript'
+on_ft = 'javascript'
+
+[[plugins]]
+repo = 'thinca/vim-textobj-function-javascript'
+on_ft = 'javascript'
+
+# json
+# ----------------------------------------------------------------------
+
+[[plugins]]
+repo = 'vim-scripts/JSON.vim'
+on_ft = 'json'
+
+# less
+# ----------------------------------------------------------------------
+
+[[plugins]]
+repo = 'groenewege/vim-less'
+on_ft = 'less'
+
+# ls (livescript)
+# ----------------------------------------------------------------------
+
+[[plugins]]
+repo = 'gkz/vim-ls'
+on_ft = 'ls'
+
+# markdown
+# ----------------------------------------------------------------------
+
+[[plugins]]
+repo = 'shime/vim-livedown'
+on_ft = 'markdown'
+
+# objc
+# ----------------------------------------------------------------------
+
+[[plugins]]
+repo = 'msanders/cocoa.vim'
+on_ft = 'objc'
+
+# python
+# ----------------------------------------------------------------------
+
+[[plugins]]
+repo = 'pythoncomplete'
+on_ft = 'python'
+
+[[plugins]]
+repo = 'thinca/vim-textobj-function-perl'
+on_ft = 'perl'
+
+[[plugins]]
+repo = 'c9s/perlomni.vim'
+on_ft = 'perl'
+
+# ruby
+# ----------------------------------------------------------------------
+
+[[plugins]]
+repo = 'basyura/unite-rails'
+depends = 'unite.vim'
+on_ft = 'ruby'
+
+[[plugins]]
+repo = 'rhysd/vim-textobj-ruby'
+on_ft = 'ruby'
+
+[[plugins]]
+repo = 't9md/vim-textobj-function-ruby'
+depends = 'vim-textobj-user'
+on_ft = 'ruby'
+
+[[plugins]]
+repo = 'tpope/vim-rails'
+on_ft = 'ruby'
+
+# rust
+# ----------------------------------------------------------------------
+
+[[plugins]]
+repo = 'rust-lang/rust.vim'
+on_ft = 'rust'
+
+# slim
+# ----------------------------------------------------------------------
+
+[[plugins]]
+repo = 'slim-template/vim-slim'
+on_ft = 'slim'
+
+# stylus
+# ----------------------------------------------------------------------
+
+[[plugins]]
+repo = 'wavded/vim-stylus'
+on_ft = 'stylus'
+
+# ===============================================================================
+#   plugins for specific platform
+# ===============================================================================
+
+[[plugins]]
+repo = 'rizzatti/dash.vim'
+if = "has('mac')"
