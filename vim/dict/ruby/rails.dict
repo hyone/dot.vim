@@ -1,1 +1,8 @@
 accepts_nested_attributes_for
+after_action
+before_action
+belongs_to
+has_many
+presence
+validates
+validates_with
