@@ -808,8 +808,8 @@ inoremap <expr> =
 inoremap <expr> -
 \ search('\(<\) \%#', 'bcn')
 \ ? '<bs>- '
-\ : search('[^=] \%#', 'bcn')
-\   ? smartchr#loop('- ', '-')
+\ : search('[^-] \%#', 'bcn')
+\   ? '- '
 \   : smartchr#loop('-',  ' - ', '--', ' -- ')
 
 inoremap <expr> <Bar>
