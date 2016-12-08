@@ -1,0 +1,54 @@
+snippet describe
+	describe ${1} do
+	  ${0:TARGET}
+	end
+
+snippet context
+	context ${1} do
+	  ${0:TARGET}
+	end
+
+snippet it
+abbr    it { ... }
+	it { ${0:TARGET} }
+
+snippet itdo
+abbr    it ... do ... end
+	it ${1} do ${0:TARGET} end
+
+snippet let
+abbr    let( ... ) { ... }
+	let(${1}) { ${0:TARGET} }
+
+snippet let!
+abbr    let!( ... ) { ... }
+	let!(${1}) { ${0:TARGET} }
+
+snippet shared_examples
+abbr    shared_examples do ... end
+	shared_examples ${1} do
+	  ${0}
+	end
+
+snippet subject
+abbr    subject { ... }
+	subject { ${0:TARGET} }
+
+snippet before
+abbr    before do ... end
+	before do ${0:TARGET} end
+snippet before1
+abbr    before { ... }
+	before { ${0:TARGET} }
+
+snippet specify
+abbr    specify { ... }
+	specify { ${0:TARGET} }
+
+snippet feature
+abbr    feature ... do ... end
+	feature ${1} do ${0:TARGET} end
+
+snippet scenario
+abbr    scenario ... do ... end
+	scenario ${1} do ${0:TARGET} end
