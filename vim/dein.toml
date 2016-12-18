@@ -46,6 +46,9 @@ depends = 'vim-textobj-user'
 repo = 'itchyny/lightline.vim'
 
 [[plugins]]
+repo = 'jceb/vim-hier'
+
+[[plugins]]
 repo = 'kana/vim-operator-replace'
 depends = 'vim-operator-user'
 
