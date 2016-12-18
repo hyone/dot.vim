@@ -1446,7 +1446,6 @@ let g:quickrun_config['watchdogs_checker/_'] = {
 \   'hook/qfsigns_update/priority_exit': 3,
 \   'hook/qfstatusline_update/enable_exit': 1,
 \   'hook/qfstatusline_update/priority_exit': 4,
-\   'outputter/quickfix/open_cmd': '',
 \ }
 
 let g:quickrun_config['javascript/watchdogs_checker'] = {
