@@ -1062,7 +1062,8 @@ let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 let g:neocomplete#sources#dictionary#dictionaries = {
   \ 'default' : '',
   \ 'elixir' : $HOME.'/.vim/dict/elixir.dict',
-  \ 'ruby' : $HOME.'/.vim/dict/ruby.dict' . ',' . $HOME .'/.vim/dict/ruby/rails.dict',
+  \ 'ruby' : $HOME.'/.vim/dict/ruby.dict' . ',' . $HOME.'/.vim/dict/ruby/rails.dict',
+  \ 'ruby.rspec' : $HOME.'/.vim/dict/ruby/rspec.dict',
   \ 'rust' : $HOME.'/.vim/dict/rust.dict',
   \ 'scheme' : $HOME.'/.gosh_completions',
   \ 'vimshell' : $HOME.'/.vimshell_hist'
