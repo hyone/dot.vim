@@ -1694,6 +1694,21 @@ augroup StripTrailingWhitespaces
   autocmd FileType elm,elixir autocmd BufWritePre <buffer> :call s:StripTrailingWhitespaces()
 augroup END
 
+"   remove trailing empty lines
+" --------------------------------------------------
+function! s:RemoveTrailingEmptyLines()
+  let l = line(".")
+  let c = col(".")
+  " `\%$`: match the end of the file
+  :silent! :%s#\($\n\s*\)\+\%$##
+  call cursor(l, c)
+endfunction
+
+augroup RemoveTrailingEmptyLines
+  autocmd!
+  autocmd FileType ruby autocmd BufWritePre <buffer> :call s:RemoveTrailingEmptyLines()
+augroup END
+
 
 " ===============================================================================
 "   Functions   {{{1
